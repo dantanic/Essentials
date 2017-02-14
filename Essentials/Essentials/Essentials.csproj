@@ -81,7 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AFKCommand.cs" />
+    <Compile Include="Command\AFKCommand.cs" />
     <Compile Include="Command\GamemodeCommand.cs" />
     <Compile Include="Essentials.cs" />
     <Compile Include="PluginLoader.cs" />
