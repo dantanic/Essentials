@@ -28,7 +28,9 @@ namespace Essentials
 
         private void RegisterCommands()
         {
-            Context.PluginManager.LoadCommands(new Gamemode(new Essentials()));
+            Essentials plugin = new Essentials();
+
+            Context.PluginManager.LoadCommands(new Gamemode(plugin));
         }
     }
 }
