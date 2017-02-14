@@ -1,24 +1,24 @@
-# Essentials
-
-에센셜 플러그인
+Essentials Plugins
 ========
 
-MiNET에 편리한 여러가지 명령어들을 추가합니다. 
+MiNET에 편리한 여러가지 명령어들을 추가합니다.
+
+#### [English Introduce](https://github.com/PIEA/Essentials/blob/master/README.md#essentials-plugins)
 
 
 ----------
 
-명령어 목록
+Command List
 ======
-- gamemode 
-<br>게임모드를 변경합니다.
+- [x] __gamemode__ : 게임모드를 변경합니다.
 
-계획
+TODO LIST
 --
-- time
+- [ ] /time
 <br>월드의 시간을 설정합니다
 
-- mute
-<br>해당 플레이어를 입력한 시간동안 벙어리로 만듭니다.
-- setspawn
-<br>월드의 스폰을 설정합니다.
+- [ ] /mute
+<br>해당 플레이어를 지정한 시간 동안 채팅을 할 수 없습니다.
+
+- [ ] /setspawn
+<br>유저의 스폰을 설정합니다.
