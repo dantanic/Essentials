@@ -1,7 +1,9 @@
 Essentials Plugins
 ========
 
-MiNET에 편리한 여러가지 명령어들을 추가합니다.
+<img src="http://i.imgur.com/fHQg8ZP.jpg" />
+
+__MiNET에 편리한 여러가지 명령어들을 추가합니다.__
 
 #### [English Introduce](https://github.com/PIEA/Essentials/blob/master/README.md#essentials-plugins)
 
