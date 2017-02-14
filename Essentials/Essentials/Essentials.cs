@@ -11,14 +11,35 @@
     PIEA, The MiNET plugins development organization.                                  
 */
 
+using MiNET;
+
+using System.Collections.Generic;
+using System;
 
 namespace Essentials
 {
     public class Essentials
     {
+        private List<string> AFKList = new List<string>();
+
         public Essentials()
         {
 
+        }
+
+        public void SetAFK(Player player)
+        {
+            AFKList.Add(player.Username);
+        }
+
+        public void RemoveAFK(Player player)
+        {
+            AFKList.Remove(player.Username);
+        }
+
+        public bool IsAFK(Player player)
+        {
+            return AFKList.Contains(player.Username);
         }
     }
 }

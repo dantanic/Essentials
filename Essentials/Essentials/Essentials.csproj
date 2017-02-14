@@ -60,6 +60,7 @@
     </Reference>
     <Reference Include="MiOP, Version=1.0.6254.18200, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\miop.1.21.15\lib\net46\MiOP.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -80,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AFKCommand.cs" />
     <Compile Include="Command\GamemodeCommand.cs" />
     <Compile Include="Essentials.cs" />
     <Compile Include="PluginLoader.cs" />

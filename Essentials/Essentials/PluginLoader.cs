@@ -31,6 +31,7 @@ namespace Essentials
             Essentials plugin = new Essentials();
 
             Context.PluginManager.LoadCommands(new GamemodeCommand(plugin));
+            Context.PluginManager.LoadCommands(new AFKCommand(plugin));
         }
     }
 }
