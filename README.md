@@ -1,9 +1,9 @@
-# Essentials
-
 Essentials Plugins
 ========
 
 Add comfotable command for MiNET
+
+#### [한국어 설명서](https://github.com/PIEA/Essentials/blob/master/README_kor.md#essentials)
 
 
 ----------
