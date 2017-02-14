@@ -2,7 +2,7 @@ Essentials Plugins
 ========
 <img src="http://i.imgur.com/fHQg8ZP.jpg" />
 
-Add comfotable command for MiNET
+__Add comfotable command for MiNET__
 
 #### [한국어 설명서](https://github.com/PIEA/Essentials/blob/master/README_kor.md#essentials)
 
