@@ -83,6 +83,8 @@
   <ItemGroup>
     <Compile Include="Command\AFKCommand.cs" />
     <Compile Include="Command\GamemodeCommand.cs" />
+    <Compile Include="Command\MuteCommand.cs" />
+    <Compile Include="Command\TellCommand.cs" />
     <Compile Include="Essentials.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
