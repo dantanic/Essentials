@@ -10,7 +10,7 @@ MiNET에 편리한 여러가지 명령어들을 추가합니다.
 
 Command List
 ======
-- [x] __gamemode__ : 게임모드를 변경합니다.
+- [x] __/gamemode__ : 게임모드를 변경합니다.
 
 TODO LIST
 --
