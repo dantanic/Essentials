@@ -10,7 +10,7 @@ Add comfotable command for MiNET
 
 Command List
 ======
-__[x] gamemode : Change user's gamemode__
+- [x] __gamemode__ : Change user's gamemode
 
 TODO LIST
 --
