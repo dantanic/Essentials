@@ -30,7 +30,7 @@ namespace Essentials
         {
             Essentials plugin = new Essentials();
 
-            Context.PluginManager.LoadCommands(new Gamemode(plugin));
+            Context.PluginManager.LoadCommands(new GamemodeCommand(plugin));
         }
     }
 }
