@@ -1,4 +1,4 @@
-Essentials Plugins
+이센셜 플러그인
 ========
 
 <img src="http://i.imgur.com/fHQg8ZP.jpg" />
