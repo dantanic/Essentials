@@ -31,5 +31,8 @@ TODO LIST
 - [ ] /help
 <br>Shows the help menu
 
+- [ ] /tp [target player] or /tp [target player] [x] [y] [z] 
+<br>Teleports the given player (or yourself) to another player or coordinates
+
 - [ ] __Multi Language API__
 <br>Support various language _(now support Korean)_
