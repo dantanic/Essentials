@@ -13,14 +13,14 @@ __MiNET에 편리한 여러가지 명령어들을 추가합니다.__
 Command List
 ======
 - [x] __/gamemode__ : 게임모드를 변경합니다.
-- [x] __/m <name> <message>__ : 해당 플레이어에게 개인 메시지를 보냅니다.
+- [x] __/m [name] [message]__ : 해당 플레이어에게 개인 메시지를 보냅니다.
 
 TODO LIST
 --
-- [ ] /time <set | stop> <value>
+- [ ] /time [set | stop] [value]
 <br>월드의 시간을 설정합니다.
 
-- [ ] /mute <name> <time>
+- [ ] /mute [name] [time]
 <br>해당 플레이어를 지정한 시간 동안 채팅을 할 수 없습니다.
 
 - [ ] /setworldspawn [x] [y] [z]
@@ -31,3 +31,6 @@ TODO LIST
 
 - [ ] /help
 <br>모든 명령어 목록을 보여줍니다.
+
+- [ ] __Multi Language API__
+<br> 다국어 언어 지원 _(현재는 한국어만 지원함)_
