@@ -13,6 +13,7 @@
 
 using System;
 using System.Linq;
+using System.Collections.Generic;
 using MiNET;
 using MiNET.Plugins.Attributes;
 using MiNET.Utils;
@@ -27,7 +28,10 @@ namespace Essentials.Command
         {
             this.Plugin = plugin;
         }
-        [Command]
+
+        List<string> tpalist = new List<string>();
+        
+        [Command(Description = "Op만 사용가능")]
         public void tp(Player sender, string targetname)
         {
             var ServerPlayers = sender.Level.Players;
@@ -49,7 +53,7 @@ namespace Essentials.Command
                 });
             }
         }
-        [Command]
+        [Command(Description = "Op만 사용가능")]
         public void tp(Player sender, string targetonen, string targettwon)
         {
             var ServerPlayers = sender.Level.Players;
@@ -74,6 +78,69 @@ namespace Essentials.Command
                 sender.SendMessage("[Essentials] " + targetonen + "님을 " + targettwon + "님에게 티피시켰습니다.");
                 targetone.SendMessage("[Essentials] 관리자 " + sender.Username + "님이 당신을 " + targettwon + "님에게 티피시켰습니다.");
                 targettwo.SendMessage("[Essentials] 관리자 " + sender.Username + "님이 " + targetonen + "님을 당신에게 티피시켰습니다.");
+            }
+        }
+        [Command]
+        public void tpa(Player sender, string targetname)
+        {
+            var ServerPlayers = sender.Level.Players;
+            var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
+            if (target == null)
+            {
+                sender.SendMessage("플레이어가 존재하지 않습니다!");
+            } else
+            {
+                tpalist.Add(sender.Username + "," + targetname);
+                sender.SendMessage(targetname + "님에게 텔레포트 요청을 하였습니다");
+                target.SendMessage(sender.Username + "님께서 당신에게 텔레포트 요청을 하였습니다.");
+                target.SendMessage("수락하시려면 tpaccept,");
+                target.SendMessage("거절하시려면 tpdeny");
+                target.SendMessage("명령어를 입력해주세요.");
+            }
+        }
+        [Command]
+        public void tpaccept(Player sender)
+        {
+            foreach(var item in tpalist)
+            {
+                string[] pitem = item.Split(',');
+                if(pitem[1] == sender.Username)
+                {
+                    var ServerPlayers = sender.Level.Players;
+                    var target = ServerPlayers.ToList().Find(x => x.Value.Username == pitem[0]).Value;
+                    sender.SendMessage("텔레포트 요청을 수락하였습니다.");
+                    target.SendMessage(sender.Username + "님이 텔레포트 요청을 수락하셨습니다.");
+                    target.Teleport(new PlayerLocation()
+                    {
+                        X = sender.KnownPosition.X,
+                        Y = sender.KnownPosition.Y,
+                        Z = sender.KnownPosition.Z
+                    });
+                    tpalist.Remove(item);
+                } else
+                {
+                    sender.SendMessage("보류중인 텔레포트 요청이 없습니다.");
+                }
+            }
+        }
+        [Command]
+        public void tpdeny(Player sender)
+        {
+            foreach (var item in tpalist)
+            {
+                string[] pitem = item.Split(',');
+                if (pitem[1] == sender.Username)
+                {
+                    var ServerPlayers = sender.Level.Players;
+                    var target = ServerPlayers.ToList().Find(x => x.Value.Username == pitem[0]).Value;
+                    sender.SendMessage("텔레포트 요청을 거절하였습니다.");
+                    target.SendMessage(sender.Username + "님이 텔레포트 요청을 거절하셨습니다.");
+                    tpalist.Remove(item);
+                }
+                else
+                {
+                    sender.SendMessage("보류중인 텔레포트 요청이 없습니다.");
+                }
             }
         }
     }
