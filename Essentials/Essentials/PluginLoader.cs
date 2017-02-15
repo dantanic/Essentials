@@ -45,6 +45,7 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new MuteCommand(plugin));
             Context.PluginManager.LoadCommands(new TellCommand(plugin));
             Context.PluginManager.LoadCommands(new BroadcastCommand(plugin));
+            Context.PluginManager.LoadCommands(new TpCommand(plugin));
         }
     }
 }

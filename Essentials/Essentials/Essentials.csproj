@@ -86,6 +86,7 @@
     <Compile Include="Command\GamemodeCommand.cs" />
     <Compile Include="Command\MuteCommand.cs" />
     <Compile Include="Command\TellCommand.cs" />
+    <Compile Include="Command\TpCommand.cs" />
     <Compile Include="Essentials.cs" />
     <Compile Include="Handler.cs" />
     <Compile Include="PluginLoader.cs" />

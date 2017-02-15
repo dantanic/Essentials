@@ -11,10 +11,10 @@
     PIEA, The MiNET plugins development organization.         
 */
 
+using System;
 using System.Linq;
 using MiNET;
 using MiNET.Plugins.Attributes;
-using MiOP;
 
 namespace Essentials.Command
 {
