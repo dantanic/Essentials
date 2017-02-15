@@ -11,15 +11,22 @@ __Add comfotable command for MiNET__
 
 Command List
 ======
-- [x] __/gamemode__ : Change user's gamemode
+- [x] __/gamemode__ : Changes the player to a specific game mode
+- [x] __/tell__ : Sends a private message to the given player
 
 TODO LIST
 --
 - [ ] /time
-<br>Set world's time
+<br>Changes the time on each world
 
 - [ ] /mute
 <br>Appointed user can't chat during appointed time
 
-- [ ] /setspawn
-<br>Set user's spawn
+- [ ] /setworldspawn
+<br>Sets a worlds's spawn point. If no coordinates are specified, the player's coordinates will be used.
+
+- [ ] /list
+<br>Lists all online players
+
+- [ ] /help
+<br>Shows the help menu
