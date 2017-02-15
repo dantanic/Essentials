@@ -8,8 +8,7 @@
        \ \__\    \ \__\ \_______\ \__\ \__\
         \|__|     \|__|\|_______|\|__|\|__|          
     
-    PIEA, The MiNET plugins development organization.             
-    ⓒ Copyright 2017 PIEA.  All Right Reserved                              
+    PIEA, The MiNET plugins development organization.                          
 */
 
 using MiNET;
