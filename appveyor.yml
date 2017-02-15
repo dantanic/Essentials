@@ -6,9 +6,9 @@
     only:
       - release
   build:
-    publish_nuget: true
+    publish_nuget: false
   before_build:
-  - cmd: nuget restore MiOP\MiOP.sln
+  - cmd: nuget restore Essentials\Essentials.sln
     
   - path: '**/Essentials.zip'
     name: Plugin
