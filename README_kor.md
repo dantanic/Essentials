@@ -13,7 +13,7 @@ __MiNET에 편리한 여러가지 명령어들을 추가합니다.__
 Command List
 ======
 - [x] __/gamemode__ : 게임모드를 변경합니다.
-- [x] __/tell <name> <message>__ : 해당 플레이어에게 개인 메시지를 보냅니다.
+- [x] __/m <name> <message>__ : 해당 플레이어에게 개인 메시지를 보냅니다.
 
 TODO LIST
 --
