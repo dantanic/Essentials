@@ -16,7 +16,6 @@ using System;
 using System.IO;
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
-using System.Reflection;
 
 
 using Essentials.Command;
@@ -45,6 +44,7 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new AFKCommand(plugin));
             Context.PluginManager.LoadCommands(new MuteCommand(plugin));
             Context.PluginManager.LoadCommands(new TellCommand(plugin));
+            Context.PluginManager.LoadCommands(new BroadcastCommand(plugin));
         }
     }
 }

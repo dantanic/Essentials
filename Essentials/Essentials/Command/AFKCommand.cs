@@ -13,7 +13,6 @@
 */
 
 using MiNET;
-using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
 
 namespace Essentials.Command

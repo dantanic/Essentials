@@ -27,7 +27,7 @@ namespace Essentials.Command
 
         public GamemodeCommand(Essentials plugin)
         {
-            this.Plugin = plugin;
+            Plugin = plugin;
         }
 
         [Command(Description = "게임모드를 변경합니다. OP만 이용가능합니다.")]

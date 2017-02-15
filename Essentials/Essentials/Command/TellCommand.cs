@@ -9,18 +9,11 @@
         \|__|     \|__|\|_______|\|__|\|__|          
     
     PIEA, The MiNET plugins development organization.         
-    ⓒ Copyright 2017 PIEA.  All Right Reserved
 */
 
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using MiNET;
 using MiNET.Plugins.Attributes;
-using MiNET.Worlds;
-using MiNET.Utils;
 using MiOP;
 
 namespace Essentials.Command
