@@ -30,10 +30,6 @@ namespace Essentials.Command
         {
             var ServerPlayers = sender.Level.Players;
             var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetName).Value;
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-            {
-                return;
-            }
             if (targetPlayer == null)
             {
                 sender.SendMessage("플레이어가 존재하지 않습니다!");
