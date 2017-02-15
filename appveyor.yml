@@ -6,9 +6,12 @@
     only:
       - release
   build:
-    publish_nuget: false
+    publish_nuget: true
   before_build:
   - cmd: nuget restore Essentials\Essentials.sln
+  after_build:
+  - cmd: 7z a Essentials.zip MiOP\bin\Release\Essentials.dll
+  artifacts:
     
   - path: '**/Essentials.zip'
     name: Plugin
