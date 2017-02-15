@@ -29,7 +29,7 @@ namespace Essentials.Command
         [Command(Name = "afk")]
         public void execute(Player sender)
         {
-            if (Plugin.IsAFK(sender))
+            if (!Plugin.IsAFK(sender))
             {
                 Plugin.SetAFK(sender);
 

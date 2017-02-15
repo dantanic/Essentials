@@ -29,7 +29,7 @@ namespace Essentials
         }
 
         [Command(Name = "broadcast")]
-        public void execute(Player sender, string text)
+        public void execute(Player sender, string[] text)
         {
             string message = String.Join(" ", text);
             sender.Level.BroadcastMessage(ChatColors.LightPurple + "[{sender.Username}] " + message);
