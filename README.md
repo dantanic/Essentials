@@ -12,7 +12,7 @@ __Add comfotable command for MiNET__
 Command List
 ======
 - [x] __/gamemode__ : Changes the player to a specific game mode
-- [x] __/tell__ : Sends a private message to the given player
+- [x] __/m__ : Sends a private message to the given player
 
 TODO LIST
 --
