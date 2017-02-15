@@ -1,0 +1,14 @@
+-
+  version: 1.21.{build}
+  platform: Any CPU
+  configuration: Release
+  branches:
+    only:
+      - release
+  build:
+    publish_nuget: true
+  before_build:
+  - cmd: nuget restore MiOP\MiOP.sln
+    
+  - path: '**/Essentials.zip'
+    name: Plugin
