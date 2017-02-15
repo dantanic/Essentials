@@ -13,17 +13,17 @@ __MiNET에 편리한 여러가지 명령어들을 추가합니다.__
 Command List
 ======
 - [x] __/gamemode__ : 게임모드를 변경합니다.
-- [x] __/tell__ : 해당 플레이어에게 개인 메시지를 보냅니다.
+- [x] __/tell <name> <message>__ : 해당 플레이어에게 개인 메시지를 보냅니다.
 
 TODO LIST
 --
-- [ ] /time
+- [ ] /time <set | stop> <value>
 <br>월드의 시간을 설정합니다.
 
-- [ ] /mute
+- [ ] /mute <name> <time>
 <br>해당 플레이어를 지정한 시간 동안 채팅을 할 수 없습니다.
 
-- [ ] /setworldspawn
+- [ ] /setworldspawn [x] [y] [z]
 <br>세계의 부활 지점을 지정합니다. 좌표를 입력하지 않으면 현재 플레이어의 좌표로 지정됩니다.
 
 - [ ] /list
