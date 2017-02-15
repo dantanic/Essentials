@@ -30,6 +30,6 @@ TODO LIST
 
 - [ ] /help
 <br>Shows the help menu
---
-- [ ] Multi Language API
-<br>Support various language (now support Korean)
+
+- [ ] __Multi Language API__
+<br>Support various language _(now support Korean)_
