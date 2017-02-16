@@ -63,9 +63,63 @@ namespace Essentials.Resources {
         /// <summary>
         ///   Essentials plugin was on enabled.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        public static string PluginOnEnabled {
+        public static string Essential_PluginOnEnabled {
             get {
-                return ResourceManager.GetString("PluginOnEnabled", resourceCulture);
+                return ResourceManager.GetString("Essential_PluginOnEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Set own game mode to {{value}}과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Gamemode_DisplayCompletedResult {
+            get {
+                return ResourceManager.GetString("Gamemode_DisplayCompletedResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Set {{target}}&apos;s game mode to {{gamemode}}.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Gamemode_DisplayCompletedResult_Target {
+            get {
+                return ResourceManager.GetString("Gamemode_DisplayCompletedResult_Target", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sets a player&apos;s game mode.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Gamemode_Help1 {
+            get {
+                return ResourceManager.GetString("Gamemode_Help1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sets a target&apos;s game mode.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Gamemode_Help2 {
+            get {
+                return ResourceManager.GetString("Gamemode_Help2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {{value}} is not game mode value.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Gamemode_InvaildGameModeValue {
+            get {
+                return ResourceManager.GetString("Gamemode_InvaildGameModeValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   No targets metched search.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Gamemode_PlayerNotFound {
+            get {
+                return ResourceManager.GetString("Gamemode_PlayerNotFound", resourceCulture);
             }
         }
     }

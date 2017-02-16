@@ -30,7 +30,7 @@ namespace Essentials
         {
             SetUserLanguage();
             RegisterCommands();
-            Console.WriteLine("[Essentials] " + StringResources.PluginOnEnabled);
+            Console.WriteLine("[Essentials] " + StringResources.Essential_PluginOnEnabled);
             if(!Directory.Exists("Essentials"))
             {
                 Directory.CreateDirectory("Essentials");

@@ -17,6 +17,7 @@ using MiNET.Worlds;
 using MiOP;
 using System;
 using System.Linq;
+using Essentials.Resources;
 
 namespace Essentials.Command
 {
@@ -26,10 +27,10 @@ namespace Essentials.Command
 
         public GamemodeCommand(Essentials plugin)
         {
-            Plugin = plugin;
+            this.Plugin = plugin;
         }
 
-        [Command(Description = "게임모드를 변경합니다. OP만 이용가능합니다.")]
+        [Command]
         public void Gamemode(Player sender)
         {
             if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
@@ -37,8 +38,8 @@ namespace Essentials.Command
                 return;
             }
 
-            sender.SendMessage($"{ChatColors.Green}/gamemode [gamemode number] -> 게임모드를 변경합니다.");
-            sender.SendMessage($"{ChatColors.Green}/gamemode [gamemode number] [target name] -> 상대방의 게임모드를 변경합니다.");
+            sender.SendMessage($"{ChatColors.Green}/gamemode [gamemode number] -> " + StringResources.Gamemode_Help1);
+            sender.SendMessage($"{ChatColors.Green}/gamemode [gamemode number] [target name] -> " + StringResources.Gamemode_Help2);
         }
 
         [Command]
@@ -53,11 +54,11 @@ namespace Essentials.Command
             {
                 var gameModeSet = (GameMode)gamemodeValue;
                 sender.SetGameMode(gameModeSet);
-                sender.SendMessage($"{ChatColors.Green}게임모드를 {gameModeSet.ToString()}로 변경하였습니다.");
+                sender.SendMessage($"{ChatColors.Green}{StringResources.Gamemode_DisplayCompletedResult.Replace("{{value}}", gameModeSet.ToString())}");
             }
             else
             {
-                sender.SendMessage($"{ChatColors.Yellow}일치하는 게임모드의 값이 없습니다!");
+                sender.SendMessage($"{ChatColors.Yellow}{StringResources.Gamemode_InvaildGameModeValue.Replace("{{value}}", gamemodeValue.ToString())}");
             }
         }
 
@@ -73,7 +74,7 @@ namespace Essentials.Command
             var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetName).Value;
             if (targetPlayer == null)
             {
-                sender.SendMessage($"{ChatColors.Yellow}일치하는 플레이어가 없습니다.");
+                sender.SendMessage($"{ChatColors.Yellow}{StringResources.Gamemode_PlayerNotFound}");
                 return;
             }
 
@@ -81,12 +82,14 @@ namespace Essentials.Command
             {
                 var gameModeSet = (GameMode)gamemodeValue;
                 targetPlayer.SetGameMode(gameModeSet);
-                targetPlayer.SendMessage($"{ChatColors.Green}{sender.Username}님이 당신의 게임모드를 {gameModeSet.ToString()}로 변경하였습니다.");
-                sender.SendMessage($"{ChatColors.Green}{targetPlayer.Username}님의 게임모드를 {gameModeSet.ToString()}로 변경하였습니다.");
+
+                var msg_player = StringResources.Gamemode_DisplayCompletedResult_Target.Replace("{{target}}", targetPlayer.Username);
+                msg_player = msg_player.Replace("{{gamemode}}", gameModeSet.ToString());
+                sender.SendMessage(ChatColors.Green + msg_player);
             }
             else
             {
-                sender.SendMessage($"{ChatColors.Yellow}일치하는 게임모드의 값이 없습니다!");
+                sender.SendMessage(ChatColors.Yellow + StringResources.Gamemode_PlayerNotFound);
             }
         }
     }
