@@ -18,6 +18,7 @@ using MiNET;
 using MiNET.Plugins.Attributes;
 using MiNET.Utils;
 using MiOP;
+using Essentials.Resources;
 
 namespace Essentials.Command
 {
@@ -33,16 +34,16 @@ namespace Essentials.Command
         {
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
-            sender.Disconnect("You are kicked");
-            sender.SendMessage($"{targetname} 킥 처리 되었습니다.");
+            sender.Disconnect(StringResources.Kick_DisconnectMessage);
+            sender.SendMessage(StringResources.Kick_CompleteMessage.Replace("{{target}}", targetname));
         }
         [Command]
         public void kick(Player sender, string targetname, string msg)
         {
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
-            sender.Disconnect($"You are kicked : {msg}");
-            sender.SendMessage($"{targetname} 킥 처리 되었습니다.");
+            sender.Disconnect($"{StringResources.Kick_DisconnectMessage } : {msg}");
+            sender.SendMessage(StringResources.Kick_CompleteMessage.Replace("{{target}}", targetname));
         }
     }
 }

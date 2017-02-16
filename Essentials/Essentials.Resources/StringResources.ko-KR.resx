@@ -147,4 +147,10 @@
   <data name="Kill_DisplayMessage" xml:space="preserve">
     <value>{{killer}}님이 당신을 명령어로 죽였습니다.</value>
   </data>
+  <data name="Kick_DisconnectMessage" xml:space="preserve">
+    <value>추방되었습니다</value>
+  </data>
+  <data name="Kick_CompleteMessage" xml:space="preserve">
+    <value>{{target}}님을 추방하였습니다.</value>
+  </data>
 </root>

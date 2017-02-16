@@ -142,6 +142,24 @@ namespace Essentials.Resources {
         }
         
         /// <summary>
+        ///   {{target}} has kicked.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Kick_CompleteMessage {
+            get {
+                return ResourceManager.GetString("Kick_CompleteMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   You are kicked과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Kick_DisconnectMessage {
+            get {
+                return ResourceManager.GetString("Kick_DisconnectMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   {{killer}} has killed you with commands.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         public static string Kill_DisplayMessage {

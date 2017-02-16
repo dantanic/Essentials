@@ -147,4 +147,10 @@
   <data name="Kill_DisplayMessage" xml:space="preserve">
     <value>{{killer}} has killed you with commands.</value>
   <comment>{{killer}}: commander name</comment></data>
+  <data name="Kick_DisconnectMessage" xml:space="preserve">
+    <value>You are kicked</value>
+  </data>
+  <data name="Kick_CompleteMessage" xml:space="preserve">
+    <value>{{target}} has kicked.</value>
+  <comment>{{target}}: target name</comment></data>
 </root>
