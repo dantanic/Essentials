@@ -80,6 +80,42 @@ namespace Essentials.Command
                 targettwo.SendMessage("[Essentials] 관리자 " + sender.Username + "님이 " + targetonen + "님을 당신에게 티피시켰습니다.");
             }
         }
+        [Command(Description = "Op만 사용가능")]
+        public void tp(Player sender, int tx, int ty, int tz)
+        {
+            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
+            {
+                return;
+            }
+            sender.Teleport(new PlayerLocation()
+            {
+                X = tx,
+                Y = ty,
+                Z = tz
+            });
+        }
+        [Command(Description = "Op만 사용가능")]
+        public void tp(Player sender, string targetname, int tx, int ty, int tz)
+        {
+            var ServerPlayers = sender.Level.Players;
+            var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
+            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
+            {
+                return;
+            }
+            if(target == null)
+            {
+                sender.SendMessage("플레이어가 존재하지 않습니다.");
+            } else
+            {
+                target.Teleport(new PlayerLocation()
+                {
+                    X = tx,
+                    Y = ty,
+                    Z = tz
+                });
+            }  
+        }
         [Command]
         public void tpa(Player sender, string targetname)
         {
