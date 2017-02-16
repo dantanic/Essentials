@@ -96,9 +96,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Resources\Resources.csproj">
-      <Project>{6a18591f-af6d-401d-982c-cd8775ebfed1}</Project>
-      <Name>Resources</Name>
+    <ProjectReference Include="..\Essentials.Resources\Essentials.Resources.csproj">
+      <Project>{c0aa1b9c-18b7-47ab-8d8f-b344e707480a}</Project>
+      <Name>Essentials.Resources</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
