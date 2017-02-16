@@ -15,9 +15,10 @@ using System;
 using System.IO;
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
-
+using Essentials.Resources;
 
 using Essentials.Command;
+using MiNET.Utils;
 
 namespace Essentials
 {
@@ -27,8 +28,9 @@ namespace Essentials
         
         protected override void OnEnable()
         {
+            SetUserLanguage();
             RegisterCommands();
-            Console.WriteLine("[Essentials]에센셜 플러그인이 활성화 되었습니다!");
+            Console.WriteLine("[Essentials] " + StringResources.PluginOnEnabled);
             if(!Directory.Exists("Essentials"))
             {
                 Directory.CreateDirectory("Essentials");
@@ -44,6 +46,12 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new TellCommand(plugin));
             Context.PluginManager.LoadCommands(new BroadcastCommand(plugin));
             Context.PluginManager.LoadCommands(new TpCommand(plugin));
+        }
+
+        private void SetUserLanguage()
+        {
+            var culture = Config.GetProperty("culture", "en");
+            ResourceManager.SetLanguage(culture);
         }
     }
 }
