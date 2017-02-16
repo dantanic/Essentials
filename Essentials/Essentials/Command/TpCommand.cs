@@ -117,11 +117,14 @@ namespace Essentials.Command
                         Z = sender.KnownPosition.Z
                     });
                     tpalist.Remove(item);
+                    return;
                 } else
                 {
                     sender.SendMessage("보류중인 텔레포트 요청이 없습니다.");
+                    return;
                 }
             }
+            sender.SendMessage("보류중인 텔레포트 요청이 없습니다.");
         }
         [Command]
         public void tpdeny(Player sender)
@@ -136,12 +139,15 @@ namespace Essentials.Command
                     sender.SendMessage("텔레포트 요청을 거절하였습니다.");
                     target.SendMessage(sender.Username + "님이 텔레포트 요청을 거절하셨습니다.");
                     tpalist.Remove(item);
+                    return;
                 }
                 else
                 {
                     sender.SendMessage("보류중인 텔레포트 요청이 없습니다.");
+                    return;
                 }
             }
+            sender.SendMessage("보류중인 텔레포트 요청이 없습니다.");
         }
     }
 }
