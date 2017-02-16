@@ -46,6 +46,7 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new TellCommand(plugin));
             Context.PluginManager.LoadCommands(new BroadcastCommand(plugin));
             Context.PluginManager.LoadCommands(new TpCommand(plugin));
+            Context.PluginManager.LoadCommands(new KillCommand(plugin));
         }
 
         private void SetUserLanguage()
