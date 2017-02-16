@@ -11,22 +11,23 @@ namespace Essentials
 {
     internal class ResourceManager
     {
+        public const string neutral = "en-US";
         public static void SetLanguage(string culture)
         {
             try
             {
                 if (culture == null)
                 {
-                    StringResources.Culture = new CultureInfo("en");
+                    StringResources.Culture = new CultureInfo(neutral);
                 }
                 else
                 {
-                    StringResources.Culture = new CultureInfo("ko-KR");
+                    StringResources.Culture = new CultureInfo(culture);
                 }
             }
             catch (CultureNotFoundException)
             {
-                StringResources.Culture = new CultureInfo("en");
+                StringResources.Culture = new CultureInfo(neutral);
             }
         }
     }

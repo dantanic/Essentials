@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PluginOnEnabled" xml:space="preserve">
+  <data name="Essential_PluginOnEnabled" xml:space="preserve">
     <value>Essentials plugin was on enabled.</value>
   </data>
+  <data name="Gamemode_Help1" xml:space="preserve">
+    <value>Sets a player's game mode.</value>
+  </data>
+  <data name="Gamemode_Help2" xml:space="preserve">
+    <value>Sets a target's game mode.</value>
+  </data>
+  <data name="Gamemode_DisplayCompletedResult" xml:space="preserve">
+    <value>Set own game mode to {{value}}</value>
+  <comment>{{value}}: game mode name</comment></data>
+  <data name="Gamemode_InvaildGameModeValue" xml:space="preserve">
+    <value>{{value}} is not game mode value.</value>
+  <comment>{{value}}: player input value</comment></data>
+  <data name="Gamemode_PlayerNotFound" xml:space="preserve">
+    <value>No targets metched search.</value>
+  </data>
+  <data name="Gamemode_DisplayCompletedResult_Target" xml:space="preserve">
+    <value>Set {{target}}'s game mode to {{gamemode}}.</value>
+  <comment>{{target}}: target name, {{gamemode}}: game mode name</comment></data>
 </root>
