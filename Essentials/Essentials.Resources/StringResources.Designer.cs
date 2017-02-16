@@ -61,6 +61,24 @@ namespace Essentials.Resources {
         }
         
         /// <summary>
+        ///   {{player}} is now afkkkk.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string AFK_SetAFK {
+            get {
+                return ResourceManager.GetString("AFK_SetAFK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {{player}} is no longer afk.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string AFK_UnSetAFK {
+            get {
+                return ResourceManager.GetString("AFK_UnSetAFK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Essentials plugin was on enabled.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         public static string Essential_PluginOnEnabled {
@@ -120,6 +138,15 @@ namespace Essentials.Resources {
         public static string Gamemode_PlayerNotFound {
             get {
                 return ResourceManager.GetString("Gamemode_PlayerNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {{killer}} has killed you with commands.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Kill_DisplayMessage {
+            get {
+                return ResourceManager.GetString("Kill_DisplayMessage", resourceCulture);
             }
         }
     }

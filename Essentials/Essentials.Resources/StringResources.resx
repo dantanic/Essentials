@@ -138,4 +138,13 @@
   <data name="Gamemode_DisplayCompletedResult_Target" xml:space="preserve">
     <value>Set {{target}}'s game mode to {{gamemode}}.</value>
   <comment>{{target}}: target name, {{gamemode}}: game mode name</comment></data>
+  <data name="AFK_SetAFK" xml:space="preserve">
+    <value>{{player}} is now afkkkk.</value>
+  <comment>{{player}}: player name</comment></data>
+  <data name="AFK_UnSetAFK" xml:space="preserve">
+    <value>{{player}} is no longer afk.</value>
+  <comment>{{player}}: player name</comment></data>
+  <data name="Kill_DisplayMessage" xml:space="preserve">
+    <value>{{killer}} has killed you with commands.</value>
+  <comment>{{killer}}: commander name</comment></data>
 </root>

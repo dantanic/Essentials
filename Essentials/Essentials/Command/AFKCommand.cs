@@ -1,5 +1,4 @@
-﻿
-/*
+﻿/*
      ________  ___  _______   ________     
     |\   __  \|\  \|\  ___ \ |\   __  \    
     \ \  \|\  \ \  \ \   __/|\ \  \|\  \   
@@ -11,8 +10,11 @@
     PIEA, The MiNET plugins development organization.                          
 */
 
+/*
 using MiNET;
 using MiNET.Plugins.Attributes;
+using Essentials.Resources;
+using System;
 
 namespace Essentials.Command
 {
@@ -31,15 +33,15 @@ namespace Essentials.Command
             if (!Plugin.IsAFK(sender))
             {
                 Plugin.SetAFK(sender);
-
-                sender.SendMessage(sender.Username + " is now afk.");
+                sender.SendMessage(StringResources.AFK_SetAFK.Replace("{{player}}", sender.Username));
             }
             else
             {
                 Plugin.RemoveAFK(sender);
 
-                sender.SendMessage(sender.Username + " is no longer afk.");
+                sender.SendMessage(StringResources.AFK_UnSetAFK.Replace("{{player}}", sender.Username));
             }
         }
     }
 }
+*/

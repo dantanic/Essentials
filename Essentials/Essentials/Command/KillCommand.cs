@@ -17,6 +17,7 @@ using MiNET;
 using MiNET.Plugins.Attributes;
 using MiNET.Utils;
 using MiOP;
+using Essentials.Resources;
 
 namespace Essentials.Command
 {
@@ -46,7 +47,7 @@ namespace Essentials.Command
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             target.HealthManager.Kill();
-            target.SendMessage($"{ChatColors.Red}{sender.Username}{ChatColors.White}님이 당신을 명령어로 죽이셨습니다.");
+            target.SendMessage($"{ChatColors.Red}{StringResources.Kill_DisplayMessage.Replace("{{killer}}", sender.Username)}");
         }
     }
 }

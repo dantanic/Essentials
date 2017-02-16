@@ -138,4 +138,13 @@
   <data name="Gamemode_DisplayCompletedResult_Target" xml:space="preserve">
     <value>{{target}}님의 게임모드를 {{gamemode}}로 변경했습니다.</value>
   </data>
+  <data name="AFK_SetAFK" xml:space="preserve">
+    <value>{{player}}님은 이제 잠수모드입니다.</value>
+  </data>
+  <data name="AFK_UnSetAFK" xml:space="preserve">
+    <value>{{player}}님은 잠수모드에서 해제되었습니다.</value>
+  </data>
+  <data name="Kill_DisplayMessage" xml:space="preserve">
+    <value>{{killer}}님이 당신을 명령어로 죽였습니다.</value>
+  </data>
 </root>
