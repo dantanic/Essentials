@@ -81,7 +81,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command\BroadcastCommand.cs" />
     <Compile Include="Command\AFKCommand.cs" />
     <Compile Include="Command\GamemodeCommand.cs" />
     <Compile Include="Command\KillCommand.cs" />
