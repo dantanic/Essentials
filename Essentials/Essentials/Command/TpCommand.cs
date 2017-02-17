@@ -18,6 +18,7 @@ using MiNET;
 using MiNET.Plugins.Attributes;
 using MiNET.Utils;
 using MiOP;
+using Essentials.Resources;
 
 namespace Essentials.Command
 {
@@ -42,7 +43,7 @@ namespace Essentials.Command
             }
             if (targetPlayer == null)
             {
-                sender.SendMessage("플레이어가 존재하지 않습니다!");
+                sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");
             } else
             {
                 sender.Teleport(new PlayerLocation()
@@ -65,7 +66,7 @@ namespace Essentials.Command
             }
             if (targetone == null || targettwo == null)
             {
-                sender.SendMessage("플레이어가 존재하지 않습니다!");
+                sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");
             }
             else
             {
@@ -75,9 +76,9 @@ namespace Essentials.Command
                     Y = targettwo.KnownPosition.Y,
                     Z = targettwo.KnownPosition.Z
                 });
-                sender.SendMessage("[Essentials] " + targetonen + "님을 " + targettwon + "님에게 티피시켰습니다.");
-                targetone.SendMessage("[Essentials] 관리자 " + sender.Username + "님이 당신을 " + targettwon + "님에게 티피시켰습니다.");
-                targettwo.SendMessage("[Essentials] 관리자 " + sender.Username + "님이 " + targetonen + "님을 당신에게 티피시켰습니다.");
+                sender.SendMessage($"{ChatColors.Gold}{targetonen} {StringResources.Tp_SenderMsg1.Replace("{{target}}", targettwon)}");
+                targetone.SendMessage($"{ChatColors.Gold}{sender.Username} {StringResources.Tp_TargetMsg1.Replace("{{target}}", targettwon)}");
+                targettwo.SendMessage($"{ChatColors.Gold}{sender.Username} {StringResources.Tp_TargetMsg2.Replace("{{target}}", targetonen)}");
             }
         }
         [Command(Description = "Op만 사용가능")]
@@ -105,7 +106,7 @@ namespace Essentials.Command
             }
             if(target == null)
             {
-                sender.SendMessage("플레이어가 존재하지 않습니다.");
+                sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");
             } else
             {
                 target.Teleport(new PlayerLocation()
@@ -114,6 +115,9 @@ namespace Essentials.Command
                     Y = ty,
                     Z = tz
                 });
+                var xyz = $"X:{tx}, Y:{ty}, Z:{tz}";
+                sender.SendMessage($"{ChatColors.Red}{targetname} {StringResources.Tp_XYZMsg.Replace("{{xyz}}", xyz)}.");
+                target.SendMessage($"{ChatColors.Red}{sender.Username} {StringResources.Tp_XYZMsg2.Replace("{{xyz}}", xyz)}.");
             }  
         }
         [Command]
@@ -123,7 +127,7 @@ namespace Essentials.Command
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             if (target == null)
             {
-                sender.SendMessage("플레이어가 존재하지 않습니다!");
+                sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");
             } else
             {
                 tpalist.Add(sender.Username + "," + targetname);

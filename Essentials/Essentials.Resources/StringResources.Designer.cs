@@ -61,24 +61,6 @@ namespace Essentials.Resources {
         }
         
         /// <summary>
-        ///   {{player}} is now afkkkk.과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        public static string AFK_SetAFK {
-            get {
-                return ResourceManager.GetString("AFK_SetAFK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   {{player}} is no longer afk.과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        public static string AFK_UnSetAFK {
-            get {
-                return ResourceManager.GetString("AFK_UnSetAFK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Essentials plugin was on enabled.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         public static string Essential_PluginOnEnabled {
@@ -165,6 +147,60 @@ namespace Essentials.Resources {
         public static string Kill_DisplayMessage {
             get {
                 return ResourceManager.GetString("Kill_DisplayMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   No targets metched search.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_NoMatch {
+            get {
+                return ResourceManager.GetString("Tp_NoMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   has teleported to {{target}}&apos;s location.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_SenderMsg1 {
+            get {
+                return ResourceManager.GetString("Tp_SenderMsg1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   has teleported you to {{target}}&apos;s location.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_TargetMsg1 {
+            get {
+                return ResourceManager.GetString("Tp_TargetMsg1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   has teleported {{target}} to your location.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_TargetMsg2 {
+            get {
+                return ResourceManager.GetString("Tp_TargetMsg2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   has teleported to {{xyz}}과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_XYZMsg {
+            get {
+                return ResourceManager.GetString("Tp_XYZMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   has teleported you to {{xyz}}.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_XYZMsg2 {
+            get {
+                return ResourceManager.GetString("Tp_XYZMsg2", resourceCulture);
             }
         }
     }

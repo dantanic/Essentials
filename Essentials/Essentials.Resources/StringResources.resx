@@ -128,29 +128,46 @@
   </data>
   <data name="Gamemode_DisplayCompletedResult" xml:space="preserve">
     <value>Set own game mode to {{value}}</value>
-  <comment>{{value}}: game mode name</comment></data>
+    <comment>{{value}}: game mode name</comment>
+  </data>
   <data name="Gamemode_InvaildGameModeValue" xml:space="preserve">
     <value>{{value}} is not game mode value.</value>
-  <comment>{{value}}: player input value</comment></data>
+    <comment>{{value}}: player input value</comment>
+  </data>
   <data name="Gamemode_PlayerNotFound" xml:space="preserve">
     <value>No targets metched search.</value>
   </data>
   <data name="Gamemode_DisplayCompletedResult_Target" xml:space="preserve">
     <value>Set {{target}}'s game mode to {{gamemode}}.</value>
-  <comment>{{target}}: target name, {{gamemode}}: game mode name</comment></data>
-  <data name="AFK_SetAFK" xml:space="preserve">
-    <value>{{player}} is now afkkkk.</value>
-  <comment>{{player}}: player name</comment></data>
-  <data name="AFK_UnSetAFK" xml:space="preserve">
-    <value>{{player}} is no longer afk.</value>
-  <comment>{{player}}: player name</comment></data>
+    <comment>{{target}}: target name, {{gamemode}}: game mode name</comment>
+  </data>
   <data name="Kill_DisplayMessage" xml:space="preserve">
     <value>{{killer}} has killed you with commands.</value>
-  <comment>{{killer}}: commander name</comment></data>
+    <comment>{{killer}}: commander name</comment>
+  </data>
   <data name="Kick_DisconnectMessage" xml:space="preserve">
     <value>You are kicked</value>
   </data>
   <data name="Kick_CompleteMessage" xml:space="preserve">
     <value>{{target}} has kicked.</value>
-  <comment>{{target}}: target name</comment></data>
+    <comment>{{target}}: target name</comment>
+  </data>
+  <data name="Tp_SenderMsg1" xml:space="preserve">
+    <value>has teleported to {{target}}'s location.</value>
+  </data>
+  <data name="Tp_NoMatch" xml:space="preserve">
+    <value>No targets metched search.</value>
+  </data>
+  <data name="Tp_TargetMsg1" xml:space="preserve">
+    <value>has teleported you to {{target}}'s location.</value>
+  </data>
+  <data name="Tp_TargetMsg2" xml:space="preserve">
+    <value>has teleported {{target}} to your location.</value>
+  </data>
+  <data name="Tp_XYZMsg" xml:space="preserve">
+    <value>has teleported to {{xyz}}</value>
+  </data>
+  <data name="Tp_XYZMsg2" xml:space="preserve">
+    <value>has teleported you to {{xyz}}.</value>
+  </data>
 </root>
