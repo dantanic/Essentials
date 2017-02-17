@@ -131,7 +131,7 @@ namespace Essentials.Command
             } else
             {
                 tpalist.Add(sender.Username + "," + targetname);
-                sender.SendMessage(targetname + "님에게 텔레포트 요청을 하였습니다");
+                sender.SendMessage($"{ChatColors.Gold}{StringResources.Tp_S1.Replace("{{target}}", targetname)}");
                 target.SendMessage(sender.Username + "님께서 당신에게 텔레포트 요청을 하였습니다.");
                 target.SendMessage("수락하시려면 tpaccept,");
                 target.SendMessage("거절하시려면 tpdeny");

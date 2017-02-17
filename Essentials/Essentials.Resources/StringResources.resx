@@ -170,4 +170,7 @@
   <data name="Tp_XYZMsg2" xml:space="preserve">
     <value>has teleported you to {{xyz}}.</value>
   </data>
+  <data name="Tp_S1" xml:space="preserve">
+    <value>Sent teleport request to {{target}}.</value>
+  </data>
 </root>

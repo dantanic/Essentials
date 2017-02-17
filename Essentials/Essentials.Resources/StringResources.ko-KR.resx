@@ -165,4 +165,7 @@
   <data name="Tp_XYZMsg2" xml:space="preserve">
     <value>님이 당신을 {{xyz}} 좌표로 티피시켰습니다.</value>
   </data>
+  <data name="Tp_S1" xml:space="preserve">
+    <value />
+  </data>
 </root>

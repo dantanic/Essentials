@@ -160,6 +160,15 @@ namespace Essentials.Resources {
         }
         
         /// <summary>
+        ///   Sent teleport request to {{target}}.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_S1 {
+            get {
+                return ResourceManager.GetString("Tp_S1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   has teleported to {{target}}&apos;s location.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         public static string Tp_SenderMsg1 {
