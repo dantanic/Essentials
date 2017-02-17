@@ -165,6 +165,12 @@
   <data name="Tp_XYZMsg2" xml:space="preserve">
     <value>님이 당신을 {{xyz}} 좌표로 티피시켰습니다.</value>
   </data>
+  <data name="Heal_1" xml:space="preserve">
+    <value>{{target}}님을 힐 해주었습니다.</value>
+  </data>
+  <data name="Heal_2" xml:space="preserve">
+    <value>{{sender}}님이 당신을 힐 해주었습니다.</value>
+  </data>
   <data name="Tp_A1" xml:space="preserve">
     <value>텔레포트 요청을 수락하셨습니다.</value>
   </data>

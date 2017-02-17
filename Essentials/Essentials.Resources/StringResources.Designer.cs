@@ -124,6 +124,24 @@ namespace Essentials.Resources {
         }
         
         /// <summary>
+        ///   Healed {{target}}과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Heal_1 {
+            get {
+                return ResourceManager.GetString("Heal_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {{sender}} healed you과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Heal_2 {
+            get {
+                return ResourceManager.GetString("Heal_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   {{target}} has kicked.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         public static string Kick_CompleteMessage {
