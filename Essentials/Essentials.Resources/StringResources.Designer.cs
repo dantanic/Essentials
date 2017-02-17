@@ -151,11 +151,56 @@ namespace Essentials.Resources {
         }
         
         /// <summary>
+        ///   Accepted the teleport request.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_A1 {
+            get {
+                return ResourceManager.GetString("Tp_A1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {{sender}} accepted the teleport request.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_A2 {
+            get {
+                return ResourceManager.GetString("Tp_A2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Declined the teleport request.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_D1 {
+            get {
+                return ResourceManager.GetString("Tp_D1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {{sender}} declined the teleport request.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_D2 {
+            get {
+                return ResourceManager.GetString("Tp_D2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   No targets metched search.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         public static string Tp_NoMatch {
             get {
                 return ResourceManager.GetString("Tp_NoMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   There isn&apos;t refering teleport request.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_P {
+            get {
+                return ResourceManager.GetString("Tp_P", resourceCulture);
             }
         }
         
@@ -174,6 +219,42 @@ namespace Essentials.Resources {
         public static string Tp_SenderMsg1 {
             get {
                 return ResourceManager.GetString("Tp_SenderMsg1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {{sender}} sent teleport request to you.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_T1 {
+            get {
+                return ResourceManager.GetString("Tp_T1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   to accpet {{color}}tpaccept,과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_T2 {
+            get {
+                return ResourceManager.GetString("Tp_T2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   to decline {{color}}tpdeny과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_T3 {
+            get {
+                return ResourceManager.GetString("Tp_T3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   enter the command.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Tp_T4 {
+            get {
+                return ResourceManager.GetString("Tp_T4", resourceCulture);
             }
         }
         

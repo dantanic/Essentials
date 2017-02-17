@@ -170,7 +170,34 @@
   <data name="Tp_XYZMsg2" xml:space="preserve">
     <value>has teleported you to {{xyz}}.</value>
   </data>
+  <data name="Tp_A1" xml:space="preserve">
+    <value>Accepted the teleport request.</value>
+  </data>
+  <data name="Tp_A2" xml:space="preserve">
+    <value>{{sender}} accepted the teleport request.</value>
+  </data>
+  <data name="Tp_D1" xml:space="preserve">
+    <value>Declined the teleport request.</value>
+  </data>
+  <data name="Tp_D2" xml:space="preserve">
+    <value>{{sender}} declined the teleport request.</value>
+  </data>
+  <data name="Tp_P" xml:space="preserve">
+    <value>There isn't refering teleport request.</value>
+  </data>
   <data name="Tp_S1" xml:space="preserve">
     <value>Sent teleport request to {{target}}.</value>
+  </data>
+  <data name="Tp_T1" xml:space="preserve">
+    <value>{{sender}} sent teleport request to you.</value>
+  </data>
+  <data name="Tp_T2" xml:space="preserve">
+    <value>to accpet {{color}}tpaccept,</value>
+  </data>
+  <data name="Tp_T3" xml:space="preserve">
+    <value>to decline {{color}}tpdeny</value>
+  </data>
+  <data name="Tp_T4" xml:space="preserve">
+    <value>enter the command.</value>
   </data>
 </root>

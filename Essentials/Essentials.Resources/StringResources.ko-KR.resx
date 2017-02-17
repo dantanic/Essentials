@@ -165,7 +165,34 @@
   <data name="Tp_XYZMsg2" xml:space="preserve">
     <value>님이 당신을 {{xyz}} 좌표로 티피시켰습니다.</value>
   </data>
+  <data name="Tp_A1" xml:space="preserve">
+    <value>텔레포트 요청을 수락하셨습니다.</value>
+  </data>
+  <data name="Tp_A2" xml:space="preserve">
+    <value>{{sender}}님이 텔레포트 요청을 수락하셨습니다.</value>
+  </data>
+  <data name="Tp_D1" xml:space="preserve">
+    <value>텔레포트 요청을 거절하셨습니다.</value>
+  </data>
+  <data name="Tp_D2" xml:space="preserve">
+    <value>{{sender}}님이 텔레포트 요청을 거절하셨습니다.</value>
+  </data>
+  <data name="Tp_P" xml:space="preserve">
+    <value>보류중인 텔레포트 요청이 없습니다.</value>
+  </data>
   <data name="Tp_S1" xml:space="preserve">
-    <value />
+    <value>{{target}}님에게 텔레포트 요청을 보냈습니다.</value>
+  </data>
+  <data name="Tp_T1" xml:space="preserve">
+    <value>{{sender}}님께서 당신에게 텔레포트 요청을 보냈습니다.</value>
+  </data>
+  <data name="Tp_T2" xml:space="preserve">
+    <value>수락하시려면 {{color}}tpaccept</value>
+  </data>
+  <data name="Tp_T3" xml:space="preserve">
+    <value>거절하시려면 {{color}}tpdeny</value>
+  </data>
+  <data name="Tp_T4" xml:space="preserve">
+    <value>명령어를 입력해주세요.</value>
   </data>
 </root>

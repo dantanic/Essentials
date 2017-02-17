@@ -130,12 +130,13 @@ namespace Essentials.Command
                 sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");
             } else
             {
+                var color = ChatColors.Red;
                 tpalist.Add(sender.Username + "," + targetname);
                 sender.SendMessage($"{ChatColors.Gold}{StringResources.Tp_S1.Replace("{{target}}", targetname)}");
-                target.SendMessage(sender.Username + "님께서 당신에게 텔레포트 요청을 하였습니다.");
-                target.SendMessage("수락하시려면 tpaccept,");
-                target.SendMessage("거절하시려면 tpdeny");
-                target.SendMessage("명령어를 입력해주세요.");
+                target.SendMessage($"{ChatColors.Gold}{StringResources.Tp_T1.Replace("{{sender}}", sender.Username)}");
+                target.SendMessage($"{ChatColors.Gold}{StringResources.Tp_T2.Replace("{{color}}", color)}{ChatColors.Gold},");
+                target.SendMessage($"{ChatColors.Gold}{StringResources.Tp_T3.Replace("{{color}}", color)}");
+                target.SendMessage($"{ChatColors.Gold}{StringResources.Tp_T4}");
             }
         }
         [Command]
@@ -148,8 +149,8 @@ namespace Essentials.Command
                 {
                     var ServerPlayers = sender.Level.Players;
                     var target = ServerPlayers.ToList().Find(x => x.Value.Username == pitem[0]).Value;
-                    sender.SendMessage("텔레포트 요청을 수락하였습니다.");
-                    target.SendMessage(sender.Username + "님이 텔레포트 요청을 수락하셨습니다.");
+                    sender.SendMessage($"{ChatColors.Gold}{StringResources.Tp_A1}");
+                    target.SendMessage($"{ChatColors.Gold}{StringResources.Tp_A2.Replace("{{sender}}", sender.Username)}");
                     target.Teleport(new PlayerLocation()
                     {
                         X = sender.KnownPosition.X,
@@ -160,11 +161,11 @@ namespace Essentials.Command
                     return;
                 } else
                 {
-                    sender.SendMessage("보류중인 텔레포트 요청이 없습니다.");
+                    sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_P}");
                     return;
                 }
             }
-            sender.SendMessage("보류중인 텔레포트 요청이 없습니다.");
+            sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_P}");
         }
         [Command]
         public void tpdeny(Player sender)
@@ -176,18 +177,18 @@ namespace Essentials.Command
                 {
                     var ServerPlayers = sender.Level.Players;
                     var target = ServerPlayers.ToList().Find(x => x.Value.Username == pitem[0]).Value;
-                    sender.SendMessage("텔레포트 요청을 거절하였습니다.");
-                    target.SendMessage(sender.Username + "님이 텔레포트 요청을 거절하셨습니다.");
+                    sender.SendMessage($"{ChatColors.Gold}{StringResources.Tp_D1}");
+                    target.SendMessage($"{ChatColors.Gold}{StringResources.Tp_D2.Replace("{{sender}}", sender.Username)}");
                     tpalist.Remove(item);
                     return;
                 }
                 else
                 {
-                    sender.SendMessage("보류중인 텔레포트 요청이 없습니다.");
+                    sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_P}");
                     return;
                 }
             }
-            sender.SendMessage("보류중인 텔레포트 요청이 없습니다.");
+            sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_P}");
         }
     }
 }
