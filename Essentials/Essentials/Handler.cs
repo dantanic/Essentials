@@ -14,6 +14,8 @@
 using MiNET;
 using MiNET.Net;
 using MiNET.Plugins.Attributes;
+using System.IO;
+using Essentials.Resources;
 
 namespace Essentials
 {
@@ -27,9 +29,17 @@ namespace Essentials
 
         }
 
-        public void PlayerJoin(object sender, PlayerEventArgs ev)
+        public void PlayerJoin(object sender, PlayerEventArgs e)
         {
-
+            StreamReader reader = new StreamReader("banlist.txt");
+            string line;
+            while((line = reader.ReadLine()) != null)
+            {
+                if(line == e.Player.Username)
+                {
+                    e.Player.Disconnect(StringResources.Ban_DisconnectMsg);
+                }
+            }
         }
     }
 }

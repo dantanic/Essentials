@@ -61,6 +61,24 @@ namespace Essentials.Resources {
         }
         
         /// <summary>
+        ///   You are banned.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Ban_DisconnectMsg {
+            get {
+                return ResourceManager.GetString("Ban_DisconnectMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {{target}} has banned.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Ban_SendMsg {
+            get {
+                return ResourceManager.GetString("Ban_SendMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Essentials plugin was on enabled.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         public static string Essential_PluginOnEnabled {
@@ -178,7 +196,7 @@ namespace Essentials.Resources {
         }
         
         /// <summary>
-        ///   {{sender}} accepted the teleport request.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Teleport request is accepted by {{sender}}.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         public static string Tp_A2 {
             get {
@@ -196,7 +214,7 @@ namespace Essentials.Resources {
         }
         
         /// <summary>
-        ///   {{sender}} declined the teleport request.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Teleport request is declined by {{sender}}.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         public static string Tp_D2 {
             get {
