@@ -13,6 +13,7 @@
 
 using System;
 using System.IO;
+using MiNET;
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
 using Essentials.Resources;
@@ -35,6 +36,12 @@ namespace Essentials
             {
                 Directory.CreateDirectory("Essentials");
             }
+
+            Context.Server.PlayerFactory.PlayerCreated += (sender, args) =>
+            {
+                Player player = args.Player;
+                player.PlayerJoin += new Handler().PlayerJoin;
+            };
         }
 
         private void RegisterCommands()

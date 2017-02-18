@@ -26,5 +26,10 @@ namespace Essentials
         {
 
         }
+
+        public void PlayerJoin(object sender, PlayerEventArgs ev)
+        {
+
+        }
     }
 }
