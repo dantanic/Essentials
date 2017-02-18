@@ -11,9 +11,20 @@ __Add comfotable command for MiNET__
 
 Command List
 ======
-- [x] __/gamemode__ : Changes the player to a specific game mode
-- [x] __/m__ : Sends a private message to the given player
+- __/gamemode__ : Changes the player to a specific game mode
+- __/m__ : Sends a private message to the given player
+- __/tp__ : Teleports the given player (or yourself) to another player or coordinates
+- __/kill__ : Commit suicide or kill other players
+- __/kick__ : Removes the specified player from the server
 
+----------
+
+Function
+=======
+- __Multi Language API__
+<br>Support various language _(English, Korean)_
+
+----------
 TODO LIST
 --
 - [ ] /time
@@ -30,9 +41,3 @@ TODO LIST
 
 - [ ] /help
 <br>Shows the help menu
-
-- [ ] /tp [target player] or /tp [target player] [x] [y] [z] 
-<br>Teleports the given player (or yourself) to another player or coordinates
-
-- [x] __Multi Language API__
-<br>Support various language _(now support Korean)_
