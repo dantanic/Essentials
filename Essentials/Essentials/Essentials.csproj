@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\BanCommand.cs" />
     <Compile Include="Command\GamemodeCommand.cs" />
     <Compile Include="Command\HealCommand.cs" />
     <Compile Include="Command\KickCommand.cs" />

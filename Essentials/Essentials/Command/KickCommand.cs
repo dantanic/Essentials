@@ -34,7 +34,7 @@ namespace Essentials.Command
         {
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
-            sender.Disconnect(StringResources.Kick_DisconnectMessage);
+            target.Disconnect(StringResources.Kick_DisconnectMessage);
             sender.SendMessage(StringResources.Kick_CompleteMessage.Replace("{{target}}", targetname));
         }
         [Command]
@@ -42,7 +42,7 @@ namespace Essentials.Command
         {
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
-            sender.Disconnect($"{StringResources.Kick_DisconnectMessage } : {msg}");
+            target.Disconnect($"{StringResources.Kick_DisconnectMessage } : {msg}");
             sender.SendMessage(StringResources.Kick_CompleteMessage.Replace("{{target}}", targetname));
         }
     }
