@@ -37,10 +37,7 @@ namespace Essentials.Command
         {
             var ServerPlayers = sender.Level.Players;
             var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-            {
-                return;
-            }
+            Essentials.permission(sender, "tp");
             if (targetPlayer == null)
             {
                 sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");

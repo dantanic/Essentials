@@ -10,5 +10,6 @@ namespace Essentials
     {
         public const string BanFileName = "banlist.txt";
         public const string HomeFileName = "Essentials/home.txt";
+        public const string PermFileName = "Essentials/permission.json";
     }
 }

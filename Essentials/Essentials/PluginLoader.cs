@@ -44,6 +44,14 @@ namespace Essentials
             {
                 File.Create(ContextConstants.BanFileName);
             }
+            if (!File.Exists(ContextConstants.PermFileName))
+            {
+                File.Create(ContextConstants.PermFileName);
+                using (StreamWriter writer = new StreamWriter(ContextConstants.PermFileName, true, System.Text.Encoding.UTF8))
+                {
+                    writer.WriteLine();
+                }
+            }
 
 
             Context.Server.PlayerFactory.PlayerCreated += (sender, args) =>

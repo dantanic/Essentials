@@ -102,6 +102,7 @@ namespace Essentials.Command
 
             sender.SendMessage($"{ChatColors.Green}/gm [gamemode number] -> " + StringResources.Gamemode_Help1);
             sender.SendMessage($"{ChatColors.Green}/gm [gamemode number] [target name] -> " + StringResources.Gamemode_Help2);
+
         }
 
         [Command]
