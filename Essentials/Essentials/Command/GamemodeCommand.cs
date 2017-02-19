@@ -33,10 +33,7 @@ namespace Essentials.Command
         [Command]
         public void Gamemode(Player sender)
         {
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-            {
-                return;
-            }
+            Essentials.permission(sender, "gamemode");
 
             sender.SendMessage($"{ChatColors.Green}/gamemode [gamemode number] -> " + StringResources.Gamemode_Help1);
             sender.SendMessage($"{ChatColors.Green}/gamemode [gamemode number] [target name] -> " + StringResources.Gamemode_Help2);
@@ -45,10 +42,7 @@ namespace Essentials.Command
         [Command]
         public void Gamemode(Player sender, int gamemodeValue)
         {
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-            {
-                return;
-            }
+            Essentials.permission(sender, "gamemode");
 
             if (Enum.IsDefined(typeof(GameMode), gamemodeValue))
             {
@@ -65,10 +59,7 @@ namespace Essentials.Command
         [Command]
         public void Gamemode(Player sender, int gamemodeValue, string targetName)
         {
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-            {
-                return;
-            }
+            Essentials.permission(sender, "gamemode");
 
             var ServerPlayers = sender.Level.Players;
             var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetName).Value;
@@ -95,10 +86,7 @@ namespace Essentials.Command
         [Command]
         public void gm(Player sender)
         {
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-            {
-                return;
-            }
+            Essentials.permission(sender, "gm");
 
             sender.SendMessage($"{ChatColors.Green}/gm [gamemode number] -> " + StringResources.Gamemode_Help1);
             sender.SendMessage($"{ChatColors.Green}/gm [gamemode number] [target name] -> " + StringResources.Gamemode_Help2);
@@ -108,10 +96,7 @@ namespace Essentials.Command
         [Command]
         public void gm(Player sender, int gamemodeValue)
         {
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-            {
-                return;
-            }
+            Essentials.permission(sender, "gm");
 
             if (Enum.IsDefined(typeof(GameMode), gamemodeValue))
             {
@@ -128,10 +113,7 @@ namespace Essentials.Command
         [Command]
         public void gm(Player sender, int gamemodeValue, string targetName)
         {
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-            {
-                return;
-            }
+            Essentials.permission(sender, "gm");
 
             var ServerPlayers = sender.Level.Players;
             var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetName).Value;

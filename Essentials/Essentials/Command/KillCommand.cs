@@ -31,19 +31,13 @@ namespace Essentials.Command
         [Command]
         public void kill(Player sender)
         {
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-            {
-                return;
-            }
+            Essentials.permission(sender, "kill");
             sender.HealthManager.Kill();
         }
         [Command]
         public void kill(Player sender, string targetname)
         {
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-            {
-                return;
-            }
+            Essentials.permission(sender, "kill");
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             target.HealthManager.Kill();

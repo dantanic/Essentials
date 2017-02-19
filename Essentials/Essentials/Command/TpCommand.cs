@@ -32,12 +32,12 @@ namespace Essentials.Command
 
         List<string> tpalist = new List<string>();
         
-        [Command(Description = "Op만 사용가능")]
+        [Command]
         public void tp(Player sender, string targetname)
         {
+            Essentials.permission(sender, "tp");
             var ServerPlayers = sender.Level.Players;
             var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
-            Essentials.permission(sender, "tp");
             if (targetPlayer == null)
             {
                 sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");
@@ -51,16 +51,13 @@ namespace Essentials.Command
                 });
             }
         }
-        [Command(Description = "Op만 사용가능")]
+        [Command]
         public void tp(Player sender, string targetonen, string targettwon)
         {
+            Essentials.permission(sender, "tp");
             var ServerPlayers = sender.Level.Players;
             var targetone = ServerPlayers.ToList().Find(x => x.Value.Username == targetonen).Value;
             var targettwo = ServerPlayers.ToList().Find(x => x.Value.Username == targettwon).Value;
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-            {
-                return;
-            }
             if (targetone == null || targettwo == null)
             {
                 sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");
@@ -78,13 +75,10 @@ namespace Essentials.Command
                 targettwo.SendMessage($"{ChatColors.Gold}{sender.Username} {StringResources.Tp_TargetMsg2.Replace("{{target}}", targetonen)}");
             }
         }
-        [Command(Description = "Op만 사용가능")]
+        [Command]
         public void tp(Player sender, int tx, int ty, int tz)
         {
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-            {
-                return;
-            }
+            Essentials.permission(sender, "tp");
             sender.Teleport(new PlayerLocation()
             {
                 X = tx,
@@ -92,16 +86,13 @@ namespace Essentials.Command
                 Z = tz
             });
         }
-        [Command(Description = "Op만 사용가능")]
+        [Command]
         public void tp(Player sender, string targetname, int tx, int ty, int tz)
         {
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-            {
-                return;
-            }
-            if(target == null)
+            Essentials.permission(sender, "tp");
+            if (target == null)
             {
                 sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");
             } else
@@ -120,6 +111,7 @@ namespace Essentials.Command
         [Command]
         public void tpa(Player sender, string targetname)
         {
+            Essentials.permission(sender, "tpa");
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             if (target == null)
@@ -139,7 +131,8 @@ namespace Essentials.Command
         [Command]
         public void tpaccept(Player sender)
         {
-            foreach(var item in tpalist)
+            Essentials.permission(sender, "tpaccept");
+            foreach (var item in tpalist)
             {
                 string[] pitem = item.Split(',');
                 if(pitem[1] == sender.Username)
@@ -167,6 +160,7 @@ namespace Essentials.Command
         [Command]
         public void tpdeny(Player sender)
         {
+            Essentials.permission(sender, "tpdeny");
             foreach (var item in tpalist)
             {
                 string[] pitem = item.Split(',');

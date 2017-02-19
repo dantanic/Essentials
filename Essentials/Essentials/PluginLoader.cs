@@ -47,10 +47,24 @@ namespace Essentials
             if (!File.Exists(ContextConstants.PermFileName))
             {
                 File.Create(ContextConstants.PermFileName);
-                using (StreamWriter writer = new StreamWriter(ContextConstants.PermFileName, true, System.Text.Encoding.UTF8))
-                {
-                    writer.WriteLine();
-                }
+            }
+            using (StreamWriter writer = new StreamWriter(ContextConstants.PermFileName, true, System.Text.Encoding.UTF8))
+            {
+
+                writer.WriteLine("{");
+                writer.WriteLine(@"gamemode"": ""OP"",");
+                writer.WriteLine(@"gm"": ""OP"",");
+                writer.WriteLine(@"tp"": ""OP"",");
+                writer.WriteLine(@"heal"": ""OP"",");
+                writer.WriteLine(@"kick"": ""OP"",");
+                writer.WriteLine(@"ban"" : ""ADMIN"",");
+                writer.WriteLine(@"m"": ""USER"",");
+                writer.WriteLine(@"w"": ""USER"",");
+                writer.WriteLine(@"t"": ""USER"",");
+                writer.WriteLine(@"tpa"": ""USER"",");
+                writer.WriteLine(@"tpaccept"": ""USER"",");
+                writer.WriteLine(@"tpdeny"": ""USER"",");
+                writer.WriteLine(@"}");
             }
 
 
