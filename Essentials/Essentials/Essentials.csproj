@@ -88,11 +88,13 @@
     <Compile Include="Command\KillCommand.cs" />
     <Compile Include="Command\TellCommand.cs" />
     <Compile Include="Command\TpCommand.cs" />
+    <Compile Include="ContextConstants.cs" />
     <Compile Include="Essentials.cs" />
     <Compile Include="Handler.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceManager.cs" />
+    <Compile Include="Util\IO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

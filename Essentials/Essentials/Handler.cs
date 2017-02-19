@@ -31,14 +31,23 @@ namespace Essentials
 
         public void PlayerJoin(object sender, PlayerEventArgs e)
         {
-            StreamReader reader = new StreamReader("banlist.txt");
-            string line;
-            while((line = reader.ReadLine()) != null)
+            if (File.Exists(ContextConstants.BanFileName))
             {
-                if(line == e.Player.Username)
+                using (StreamReader reader = new StreamReader(ContextConstants.BanFileName))
                 {
-                    e.Player.Disconnect(StringResources.Ban_DisconnectMsg);
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        if (line == e.Player.Username)
+                        {
+                            e.Player.Disconnect(StringResources.Ban_DisconnectMsg);
+                        }
+                    }
                 }
+            }
+            else
+            {
+                File.Create(ContextConstants.BanFileName);
             }
         }
     }

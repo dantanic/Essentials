@@ -35,10 +35,16 @@ namespace Essentials.Command
         {
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
-            StreamWriter writer = new StreamWriter("banlist.txt");
-            writer.WriteLine(targetname);
-            writer.Close();
-            target.Disconnect(StringResources.Ban_DisconnectMsg);
+
+            using (StreamWriter writer = new StreamWriter(ContextConstants.BanFileName, true, System.Text.Encoding.UTF8))
+            {
+                writer.WriteLine(targetname);
+            }
+
+            if (target != null)
+            {
+                target.Disconnect(StringResources.Ban_DisconnectMsg);
+            }
             sender.SendMessage(StringResources.Ban_SendMsg.Replace("{{target}}", targetname));
         }
     }
