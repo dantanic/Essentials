@@ -12,7 +12,6 @@
 */
 
 using MiNET;
-
 using System.Collections.Generic;
 namespace Essentials
 {

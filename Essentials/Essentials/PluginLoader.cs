@@ -64,7 +64,7 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new KillCommand(plugin));
             Context.PluginManager.LoadCommands(new KickCommand(plugin));
             Context.PluginManager.LoadCommands(new BanCommand(plugin));
-            Context.PluginManager.LoadCommands(new HomeCommand(plugin));
+            //Context.PluginManager.LoadCommands(new HomeCommand(plugin));
         }
 
         private void SetUserLanguage()
