@@ -9,5 +9,6 @@ namespace Essentials
     public class ContextConstants
     {
         public const string BanFileName = "banlist.txt";
+        public const string HomeFileName = "Essentials/home.txt";
     }
 }

@@ -36,6 +36,15 @@ namespace Essentials
             {
                 Directory.CreateDirectory("Essentials");
             }
+            if (!File.Exists(ContextConstants.HomeFileName))
+            {
+                File.Create(ContextConstants.HomeFileName);
+            }
+            if (!File.Exists(ContextConstants.BanFileName))
+            {
+                File.Create(ContextConstants.BanFileName);
+            }
+
 
             Context.Server.PlayerFactory.PlayerCreated += (sender, args) =>
             {
@@ -55,6 +64,7 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new KillCommand(plugin));
             Context.PluginManager.LoadCommands(new KickCommand(plugin));
             Context.PluginManager.LoadCommands(new BanCommand(plugin));
+            Context.PluginManager.LoadCommands(new HomeCommand(plugin));
         }
 
         private void SetUserLanguage()

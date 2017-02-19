@@ -11,6 +11,7 @@
     PIEA, The MiNET plugins development organization.         
 */
 
+using System;
 using MiNET;
 using MiNET.Net;
 using MiNET.Plugins.Attributes;
@@ -31,24 +32,18 @@ namespace Essentials
 
         public void PlayerJoin(object sender, PlayerEventArgs e)
         {
-            if (File.Exists(ContextConstants.BanFileName))
+            using (StreamReader reader = new StreamReader(ContextConstants.BanFileName))
             {
-                using (StreamReader reader = new StreamReader(ContextConstants.BanFileName))
+                string line;
+                while ((line = reader.ReadLine()) != null)
                 {
-                    string line;
-                    while ((line = reader.ReadLine()) != null)
+                    if (line == e.Player.Username)
                     {
-                        if (line == e.Player.Username)
-                        {
-                            e.Player.Disconnect(StringResources.Ban_DisconnectMsg);
-                        }
+                        e.Player.Disconnect(StringResources.Ban_DisconnectMsg);
                     }
                 }
-            }
-            else
-            {
-                File.Create(ContextConstants.BanFileName);
             }
         }
     }
 }
+
