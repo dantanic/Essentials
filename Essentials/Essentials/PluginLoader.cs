@@ -59,7 +59,7 @@ namespace Essentials
 
         private void SetUserLanguage()
         {
-            var culture = Config.GetProperty("culture", "en");
+            var culture = Config.GetProperty("lang", "en");
             ResourceManager.SetLanguage(culture);
         }
     }
