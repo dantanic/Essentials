@@ -56,69 +56,17 @@ namespace Essentials.Command
                 }
             }
         }
+#region short command
         [Command]
         public void w(Player sender, string targetName, string message)
         {
-            if (!Essentials.VerifyPermission(sender, "w"))
-            {
-                return;
-            }
-            var ServerPlayers = sender.Level.Players;
-            var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetName).Value;
-            if (targetPlayer == null)
-            {
-                sender.SendMessage("플레이어가 존재하지 않습니다!");
-            }
-            else
-            {
-                if (!Plugin.IsAFK(targetPlayer))
-                {
-                    var senderm = "[나 -> " + targetName + "]" + message;
-                    var tgm = "[" + targetName + " -> 나]" + message;
-                    sender.SendMessage(senderm);
-                    targetPlayer.SendMessage(tgm);
-                }
-                else
-                {
-                    var senderm = "[나 -> " + targetName + "]" + message;
-                    var tgm = "[" + targetName + " -> 나]" + message;
-                    sender.SendMessage(senderm);
-                    targetPlayer.SendMessage(tgm);
-                    sender.SendMessage("[Essentials]상대방이 잠수 상태이므로 응답하지 않을 수 있습니다!");
-                }
-            }
+            m(sender, targetName, message);
         }
         [Command]
         public void t(Player sender, string targetName, string message)
         {
-            if (!Essentials.VerifyPermission(sender, "t"))
-            {
-                return;
-            }
-            var ServerPlayers = sender.Level.Players;
-            var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetName).Value;
-            if (targetPlayer == null)
-            {
-                sender.SendMessage("플레이어가 존재하지 않습니다!");
-            }
-            else
-            {
-                if (!Plugin.IsAFK(targetPlayer))
-                {
-                    var senderm = "[나 -> " + targetName + "]" + message;
-                    var tgm = "[" + targetName + " -> 나]" + message;
-                    sender.SendMessage(senderm);
-                    targetPlayer.SendMessage(tgm);
-                }
-                else
-                {
-                    var senderm = "[나 -> " + targetName + "]" + message;
-                    var tgm = "[" + targetName + " -> 나]" + message;
-                    sender.SendMessage(senderm);
-                    targetPlayer.SendMessage(tgm);
-                    sender.SendMessage("[Essentials]상대방이 잠수 상태이므로 응답하지 않을 수 있습니다!");
-                }
-            }
+            m(sender, targetName, message);
         }
+#endregion
     }
 }
