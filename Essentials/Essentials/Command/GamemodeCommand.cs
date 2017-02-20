@@ -33,8 +33,10 @@ namespace Essentials.Command
         [Command]
         public void Gamemode(Player sender)
         {
-            Essentials.VerifyPermission(sender, "gamemode");
-
+            if (!Essentials.VerifyPermission(sender, "gamemode"))
+            {
+                return;
+            }
             sender.SendMessage
                 ($"{ContextConstants.Prefix}{ChatColors.Green}/gamemode [gamemode number] -> " + StringResources.Gamemode_Help1);
             sender.SendMessage
