@@ -41,8 +41,14 @@ namespace Essentials
                     if (line == e.Player.Username)
                     {
                         e.Player.Disconnect(StringResources.Ban_DisconnectMsg);
+                        return;
                     }
                 }
+            var pl = e.Player;
+            var name = pl.Username;
+            if(pl == null) throw new NotImplementedException();
+            pl.Level.BroadcastMessage($"§e{name}joined the game");
+            //pl.Level.BroadcastMessage($"§e{name}님이 게임에 참여했습니다");
             }
         }
     }
