@@ -8,7 +8,7 @@ namespace Essentials
 {
     public class ContextConstants
     {
-        public const string DefaultDir = "Essentails";
+        public const string DefaultDir = "Essentials";
         public const string BanFile = "banlist.txt";
         public const string HomeFile = "home.txt";
         public const string PermFile = "permissions.json";
