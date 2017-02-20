@@ -17,9 +17,13 @@ using MiNET;
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
 using Essentials.Resources;
-
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Essentials.Command;
 using MiNET.Utils;
+using Essentials.Permission;
+using System.Text;
+using Essentials.Util;
 
 namespace Essentials
 {
@@ -31,48 +35,52 @@ namespace Essentials
         {
             SetUserLanguage();
             RegisterCommands();
+            CreateFiles();
             Console.WriteLine("[Essentials] " + StringResources.Essential_PluginOnEnabled);
-            if(!Directory.Exists("Essentials"))
-            {
-                Directory.CreateDirectory("Essentials");
-            }
-            if (!File.Exists(ContextConstants.HomeFileName))
-            {
-                File.Create(ContextConstants.HomeFileName);
-            }
-            if (!File.Exists(ContextConstants.BanFileName))
-            {
-                File.Create(ContextConstants.BanFileName);
-            }
-            if (!File.Exists(ContextConstants.PermFileName))
-            {
-                File.Create(ContextConstants.PermFileName);
-            }
-            using (StreamWriter writer = new StreamWriter(ContextConstants.PermFileName, true, System.Text.Encoding.UTF8))
-            {
-
-                writer.WriteLine("{");
-                writer.WriteLine(@"gamemode"": ""OP"",");
-                writer.WriteLine(@"gm"": ""OP"",");
-                writer.WriteLine(@"tp"": ""OP"",");
-                writer.WriteLine(@"heal"": ""OP"",");
-                writer.WriteLine(@"kick"": ""OP"",");
-                writer.WriteLine(@"ban"" : ""ADMIN"",");
-                writer.WriteLine(@"m"": ""USER"",");
-                writer.WriteLine(@"w"": ""USER"",");
-                writer.WriteLine(@"t"": ""USER"",");
-                writer.WriteLine(@"tpa"": ""USER"",");
-                writer.WriteLine(@"tpaccept"": ""USER"",");
-                writer.WriteLine(@"tpdeny"": ""USER"",");
-                writer.WriteLine(@"}");
-            }
-
 
             Context.Server.PlayerFactory.PlayerCreated += (sender, args) =>
             {
                 Player player = args.Player;
                 player.PlayerJoin += new Handler().PlayerJoin;
             };
+        }
+
+        private void CreateFiles()
+        {
+            var homePath = IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.HomeFile);
+            if (!File.Exists(homePath))
+            {
+                File.Create(homePath);
+            }
+
+            var banPath = IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.BanFile);
+            if (!File.Exists(banPath))
+            {
+                File.Create(banPath);
+            }
+
+            var permPath = IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.PermFile);
+            if (!File.Exists(permPath))
+            {
+                var json = JsonConvert.SerializeObject(new CommandPermission()
+                {
+                    gamemode = Permissions.OP,
+                    gm = Permissions.OP,
+                    heal = Permissions.OP,
+                    tp = Permissions.OP,
+                    kick = Permissions.OP,
+                    kill = Permissions.OP,
+                    ban = Permissions.ADMIN,
+                    m = Permissions.USER,
+                    t = Permissions.USER,
+                    w = Permissions.USER,
+                    tpa = Permissions.USER,
+                    tpaccept = Permissions.USER,
+                    tpdeny = Permissions.USER,
+                }, Formatting.Indented);
+
+                File.WriteAllText(permPath, json, Encoding.UTF8);
+            }
         }
 
         private void RegisterCommands()

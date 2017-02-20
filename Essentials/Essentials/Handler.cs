@@ -17,6 +17,7 @@ using MiNET.Net;
 using MiNET.Plugins.Attributes;
 using System.IO;
 using Essentials.Resources;
+using Essentials.Util;
 
 namespace Essentials
 {
@@ -32,7 +33,7 @@ namespace Essentials
 
         public void PlayerJoin(object sender, PlayerEventArgs e)
         {
-            using (StreamReader reader = new StreamReader(ContextConstants.BanFileName))
+            using (StreamReader reader = new StreamReader(IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.BanFile)))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)

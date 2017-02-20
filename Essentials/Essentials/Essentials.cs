@@ -18,6 +18,9 @@ using Newtonsoft.Json.Linq;
 using MiOP;
 using System;
 using System.IO;
+using Essentials.Util;
+using Essentials.Permission;
+using System.Text;
 
 namespace Essentials
 {
@@ -47,13 +50,9 @@ namespace Essentials
 
         public static void permission(Player sender, string cmd)
         {
-            string p;
-            JObject permi;
-            using (StreamReader file = File.OpenText(@"Essentials/permission.json"))
-            {
-                p = file.ReadToEnd();
-                permi = JObject.Parse(p);
-            }
+            JObject permi = JObject.Parse(File.ReadAllText
+                (IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.PermFile), Encoding.UTF8));
+
             if (permi[cmd].ToString() == "OP")
             {
                 if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))

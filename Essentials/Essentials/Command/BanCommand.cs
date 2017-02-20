@@ -20,6 +20,7 @@ using MiNET.Utils;
 using MiOP;
 using Essentials.Resources;
 using System.IO;
+using Essentials.Util;
 
 namespace Essentials.Command
 {
@@ -37,7 +38,9 @@ namespace Essentials.Command
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
 
-            using (StreamWriter writer = new StreamWriter(ContextConstants.BanFileName, true, System.Text.Encoding.UTF8))
+            using (StreamWriter writer = new StreamWriter
+                (IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.BanFile), 
+                true, System.Text.Encoding.UTF8))
             {
                 writer.WriteLine(targetname);
             }

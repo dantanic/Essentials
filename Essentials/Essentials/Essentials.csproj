@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Permission\CommandPermission.cs" />
     <Compile Include="Command\BanCommand.cs" />
     <Compile Include="Command\GamemodeCommand.cs" />
     <Compile Include="Command\HealCommand.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="ContextConstants.cs" />
     <Compile Include="Essentials.cs" />
     <Compile Include="Handler.cs" />
+    <Compile Include="Permission\Permissions.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceManager.cs" />

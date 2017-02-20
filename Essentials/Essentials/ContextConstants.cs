@@ -8,8 +8,9 @@ namespace Essentials
 {
     public class ContextConstants
     {
-        public const string BanFileName = "banlist.txt";
-        public const string HomeFileName = "Essentials/home.txt";
-        public const string PermFileName = "Essentials/permission.json";
+        public const string DefaultDir = "Essentails";
+        public const string BanFile = "banlist.txt";
+        public const string HomeFile = "home.txt";
+        public const string PermFile = "permissions.json";
     }
 }
