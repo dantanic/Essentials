@@ -21,6 +21,8 @@ using System.IO;
 using Essentials.Util;
 using Essentials.Permission;
 using System.Text;
+using MiNET.Utils;
+using Essentials.Resources;
 
 namespace Essentials
 {
@@ -48,27 +50,30 @@ namespace Essentials
             return AFKList.Contains(player.Username);
         }
 
-        public static void permission(Player sender, string cmd)
+        public static bool VerifyPermission(Player sender, string cmd)
         {
             JObject permi = JObject.Parse(File.ReadAllText
                 (IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.PermFile), Encoding.UTF8));
 
+            var verify = true;
             if (permi[cmd].ToString() == "OP")
             {
-                if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
+                if (!PermissionManager.Manager.IsOP(sender.Username))
                 {
-                    return;
+                    sender.SendMessage($"[Essentials] {ChatColors.Red}{StringResources.Essentials_NoMatchPermission}");
+                    verify = false;
                 }
-                return;
             }
-            if (permi[cmd].ToString() == "ADMIN")
+            else if (permi[cmd].ToString() == "ADMIN")
             {
                 if (!PermissionManager.Manager.IsAdmin(sender.Username))
                 {
-                    return;
+                    sender.SendMessage($"[Essentials] {ChatColors.Red}{StringResources.Essentials_NoMatchPermission}");
+                    verify = false;
                 }
-                return;
             }
+
+            return verify;
         }
         class permclass
         {

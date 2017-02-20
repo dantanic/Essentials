@@ -207,4 +207,7 @@
   <data name="Ban_SendMsg" xml:space="preserve">
     <value>{{target}}님을 차단시켰습니다.</value>
   </data>
+  <data name="Essentials_NoMatchPermission" xml:space="preserve">
+    <value>명령어에 액세스 할 수 있는 권한이 없습니다.</value>
+  </data>
 </root>

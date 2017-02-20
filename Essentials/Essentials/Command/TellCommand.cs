@@ -28,7 +28,10 @@ namespace Essentials.Command
         [Command]
         public void m(Player sender, string targetName, string message)
         {
-            Essentials.permission(sender, "m");
+            if (!Essentials.VerifyPermission(sender, "m"))
+            {
+                return;
+            }
             var ServerPlayers = sender.Level.Players;
             var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetName).Value;
             if (targetPlayer == null)
@@ -56,7 +59,10 @@ namespace Essentials.Command
         [Command]
         public void w(Player sender, string targetName, string message)
         {
-            Essentials.permission(sender, "w");
+            if (!Essentials.VerifyPermission(sender, "w"))
+            {
+                return;
+            }
             var ServerPlayers = sender.Level.Players;
             var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetName).Value;
             if (targetPlayer == null)
@@ -85,7 +91,10 @@ namespace Essentials.Command
         [Command]
         public void t(Player sender, string targetName, string message)
         {
-            Essentials.permission(sender, "t");
+            if (!Essentials.VerifyPermission(sender, "t"))
+            {
+                return;
+            }
             var ServerPlayers = sender.Level.Players;
             var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetName).Value;
             if (targetPlayer == null)

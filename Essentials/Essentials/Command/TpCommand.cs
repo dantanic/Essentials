@@ -35,7 +35,10 @@ namespace Essentials.Command
         [Command]
         public void tp(Player sender, string targetname)
         {
-            Essentials.permission(sender, "tp");
+            if (!Essentials.VerifyPermission(sender, "tp"))
+            {
+                return;
+            }
             var ServerPlayers = sender.Level.Players;
             var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             if (targetPlayer == null)
@@ -54,7 +57,10 @@ namespace Essentials.Command
         [Command]
         public void tp(Player sender, string targetonen, string targettwon)
         {
-            Essentials.permission(sender, "tp");
+            if (!Essentials.VerifyPermission(sender, "tp"))
+            {
+                return;
+            }
             var ServerPlayers = sender.Level.Players;
             var targetone = ServerPlayers.ToList().Find(x => x.Value.Username == targetonen).Value;
             var targettwo = ServerPlayers.ToList().Find(x => x.Value.Username == targettwon).Value;
@@ -78,7 +84,10 @@ namespace Essentials.Command
         [Command]
         public void tp(Player sender, int tx, int ty, int tz)
         {
-            Essentials.permission(sender, "tp");
+            if (!Essentials.VerifyPermission(sender, "tp"))
+            {
+                return;
+            }
             sender.Teleport(new PlayerLocation()
             {
                 X = tx,
@@ -89,9 +98,13 @@ namespace Essentials.Command
         [Command]
         public void tp(Player sender, string targetname, int tx, int ty, int tz)
         {
+            if (!Essentials.VerifyPermission(sender, "tp"))
+            {
+                return;
+            }
+
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
-            Essentials.permission(sender, "tp");
             if (target == null)
             {
                 sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");
@@ -111,7 +124,10 @@ namespace Essentials.Command
         [Command]
         public void tpa(Player sender, string targetname)
         {
-            Essentials.permission(sender, "tpa");
+            if (!Essentials.VerifyPermission(sender, "tpa"))
+            {
+                return;
+            }
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             if (target == null)
@@ -131,7 +147,10 @@ namespace Essentials.Command
         [Command]
         public void tpaccept(Player sender)
         {
-            Essentials.permission(sender, "tpaccept");
+            if (!Essentials.VerifyPermission(sender, "tpaccept"))
+            {
+                return;
+            }
             foreach (var item in tpalist)
             {
                 string[] pitem = item.Split(',');
@@ -160,7 +179,10 @@ namespace Essentials.Command
         [Command]
         public void tpdeny(Player sender)
         {
-            Essentials.permission(sender, "tpdeny");
+            if (!Essentials.VerifyPermission(sender, "tpdenny"))
+            {
+                return;
+            }
             foreach (var item in tpalist)
             {
                 string[] pitem = item.Split(',');

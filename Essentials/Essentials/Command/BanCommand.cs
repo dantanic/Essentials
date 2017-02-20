@@ -34,7 +34,10 @@ namespace Essentials.Command
         [Command]
         public void ban(Player sender, string targetname)
         {
-            Essentials.permission(sender, "ban");
+            if (!Essentials.VerifyPermission(sender, "ban"))
+            {
+                return;
+            }
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
 

@@ -32,14 +32,20 @@ namespace Essentials.Command
         [Command]
         public void heal(Player sender)
         {
-            Essentials.permission(sender, "heal");
+            if (!Essentials.VerifyPermission(sender, "heal"))
+            {
+                return;
+            }
             sender.HealthManager.Health = sender.HealthManager.MaxHealth;
             sender.HungerManager.Hunger = sender.HungerManager.MaxHunger;
         }
         [Command]
         public void heal(Player sender, string targetname)
         {
-            Essentials.permission(sender, "heal");
+            if (!Essentials.VerifyPermission(sender, "heal"))
+            {
+                return;
+            }
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             target.HealthManager.Health = target.HealthManager.MaxHealth;

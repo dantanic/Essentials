@@ -32,7 +32,10 @@ namespace Essentials.Command
         [Command]
         public void kick(Player sender, string targetname)
         {
-            Essentials.permission(sender, "kick");
+            if (!Essentials.VerifyPermission(sender, "kick"))
+            {
+                return;
+            }
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             target.Disconnect(StringResources.Kick_DisconnectMessage);
@@ -41,7 +44,10 @@ namespace Essentials.Command
         [Command]
         public void kick(Player sender, string targetname, string msg)
         {
-            Essentials.permission(sender, "kick");
+            if (!Essentials.VerifyPermission(sender, "kick"))
+            {
+                return;
+            }
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             target.Disconnect($"{StringResources.Kick_DisconnectMessage } : {msg}");
