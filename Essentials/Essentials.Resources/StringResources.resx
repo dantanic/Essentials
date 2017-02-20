@@ -221,4 +221,7 @@
   <data name="LeaveMessage" xml:space="preserve">
     <value>{{player}} left the game.</value>
   </data>
+  <data name="me" xml:space="preserve">
+    <value>me</value>
+  </data>
 </root>

@@ -214,6 +214,15 @@ namespace Essentials.Resources {
         }
         
         /// <summary>
+        ///   me과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string me {
+            get {
+                return ResourceManager.GetString("me", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Accepted the teleport request.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         public static string Tp_A1 {

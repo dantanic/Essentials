@@ -216,4 +216,7 @@
   <data name="LeaveMessage" xml:space="preserve">
     <value>{{player}}님이 게임을 나가셨습니다.</value>
   </data>
+  <data name="me" xml:space="preserve">
+    <value>나</value>
+  </data>
 </root>

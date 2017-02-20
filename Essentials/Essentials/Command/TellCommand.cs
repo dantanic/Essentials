@@ -15,6 +15,8 @@ using System;
 using System.Linq;
 using MiNET;
 using MiNET.Plugins.Attributes;
+using Essentials.Resources;
+using MiNET.Utils;
 
 namespace Essentials.Command
 {
@@ -33,16 +35,14 @@ namespace Essentials.Command
                 return;
             }
             var ServerPlayers = sender.Level.Players;
-            var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetName).Value;
-            if (targetPlayer == null)
+            var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetName).Value;
+            if (target == null)
             {
                 sender.SendMessage(ContextConstants.Prefix + "플레이어가 존재하지 않습니다!");
             } else
             {
-                var senderm = "[나 -> " + targetName + "]" + message;
-                var tgm = "[" + targetName + " -> 나]" + message;
-                sender.SendMessage(ContextConstants.Prefix + senderm);
-                targetPlayer.SendMessage(ContextConstants.Prefix + tgm);
+                sender.SendMessage($"{ChatColors.Red}[{StringResources.me} -> {target.Username}] {ChatColors.Gold}{message}");
+                target.SendMessage($"{ChatColors.Red}[{target.Username} -> {StringResources.me}] {ChatColors.Gold}{message}");
             }
         }
 #region short command
