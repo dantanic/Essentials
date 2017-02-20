@@ -42,6 +42,7 @@ namespace Essentials
             {
                 Player player = args.Player;
                 player.PlayerJoin += new Handler().PlayerJoin;
+                player.PlayerLeave += new Handler().PlayerLeave;
             };
         }
 

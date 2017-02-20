@@ -12,6 +12,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 using MiNET;
 using MiNET.Net;
 using MiNET.Plugins.Attributes;
@@ -47,9 +48,15 @@ namespace Essentials
             var pl = e.Player;
             var name = pl.Username;
             if(pl == null) throw new NotImplementedException();
-            pl.Level.BroadcastMessage($"§e{name}joined the game");
-            //pl.Level.BroadcastMessage($"§e{name}님이 게임에 참여했습니다");
+            pl.Level.BroadcastMessage($"§e{StringResources.JoinMessage.Replace("{{player}}", name)}");
             }
+        }
+        public void PlayerLeave(object sender, PlayerEventArgs e)
+        {
+            var pl = e.Player;
+            var name = pl.Username;
+            if (pl == null) throw new NotImplementedException();
+            pl.Level.BroadcastMessage($"§e{StringResources.JoinMessage.Replace("{{player}}", name)}");
         }
     }
 }

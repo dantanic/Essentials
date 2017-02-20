@@ -215,4 +215,10 @@
   <data name="Essentials_NoMatchPermission" xml:space="preserve">
     <value>You don't have permission to access the command.</value>
   </data>
+  <data name="JoinMessage" xml:space="preserve">
+    <value>{{player}} joined the game.</value>
+  </data>
+  <data name="LeaveMessage" xml:space="preserve">
+    <value>{{player}} left the game.</value>
+  </data>
 </root>
