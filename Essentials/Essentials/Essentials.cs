@@ -60,7 +60,7 @@ namespace Essentials
             {
                 if (!PermissionManager.Manager.IsOP(sender.Username))
                 {
-                    sender.SendMessage($"[Essentials] {ChatColors.Red}{StringResources.Essentials_NoMatchPermission}");
+                    sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{StringResources.Essentials_NoMatchPermission}");
                     verify = false;
                 }
             }
@@ -68,7 +68,7 @@ namespace Essentials
             {
                 if (!PermissionManager.Manager.IsAdmin(sender.Username))
                 {
-                    sender.SendMessage($"[Essentials] {ChatColors.Red}{StringResources.Essentials_NoMatchPermission}");
+                    sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{StringResources.Essentials_NoMatchPermission}");
                     verify = false;
                 }
             }

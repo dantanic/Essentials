@@ -35,8 +35,10 @@ namespace Essentials.Command
         {
             Essentials.VerifyPermission(sender, "gamemode");
 
-            sender.SendMessage($"{ChatColors.Green}/gamemode [gamemode number] -> " + StringResources.Gamemode_Help1);
-            sender.SendMessage($"{ChatColors.Green}/gamemode [gamemode number] [target name] -> " + StringResources.Gamemode_Help2);
+            sender.SendMessage
+                ($"{ContextConstants.Prefix}{ChatColors.Green}/gamemode [gamemode number] -> " + StringResources.Gamemode_Help1);
+            sender.SendMessage
+                ($"{ContextConstants.Prefix}{ChatColors.Green}/gamemode [gamemode number] [target name] -> " + StringResources.Gamemode_Help2);
         }
 
         [Command]
@@ -51,11 +53,11 @@ namespace Essentials.Command
             {
                 var gameModeSet = (GameMode)gamemodeValue;
                 sender.SetGameMode(gameModeSet);
-                sender.SendMessage($"{ChatColors.Green}{StringResources.Gamemode_DisplayCompletedResult.Replace("{{value}}", gameModeSet.ToString())}");
+                sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Green}{StringResources.Gamemode_DisplayCompletedResult.Replace("{{value}}", gameModeSet.ToString())}");
             }
             else
             {
-                sender.SendMessage($"{ChatColors.Yellow}{StringResources.Gamemode_InvaildGameModeValue.Replace("{{value}}", gamemodeValue.ToString())}");
+                sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Yellow}{StringResources.Gamemode_InvaildGameModeValue.Replace("{{value}}", gamemodeValue.ToString())}");
             }
         }
 
@@ -71,7 +73,7 @@ namespace Essentials.Command
             var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetName).Value;
             if (targetPlayer == null)
             {
-                sender.SendMessage($"{ChatColors.Yellow}{StringResources.Gamemode_PlayerNotFound}");
+                sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Yellow}{StringResources.Gamemode_PlayerNotFound}");
                 return;
             }
 
@@ -82,11 +84,11 @@ namespace Essentials.Command
 
                 var msg_player = StringResources.Gamemode_DisplayCompletedResult_Target.Replace("{{target}}", targetPlayer.Username);
                 msg_player = msg_player.Replace("{{gamemode}}", gameModeSet.ToString());
-                sender.SendMessage(ChatColors.Green + msg_player);
+                sender.SendMessage(ContextConstants.Prefix + ChatColors.Green + msg_player);
             }
             else
             {
-                sender.SendMessage(ChatColors.Yellow + StringResources.Gamemode_PlayerNotFound);
+                sender.SendMessage(ContextConstants.Prefix + ChatColors.Yellow + StringResources.Gamemode_PlayerNotFound);
             }
         }
 #region short command

@@ -52,7 +52,7 @@ namespace Essentials.Command
             {
                 target.Disconnect(StringResources.Ban_DisconnectMsg);
             }
-            sender.SendMessage(StringResources.Ban_SendMsg.Replace("{{target}}", targetname));
+            sender.SendMessage(ContextConstants.Prefix + StringResources.Ban_SendMsg.Replace("{{target}}", targetname));
         }
     }
 }

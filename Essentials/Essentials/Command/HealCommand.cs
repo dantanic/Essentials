@@ -50,8 +50,8 @@ namespace Essentials.Command
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             target.HealthManager.Health = target.HealthManager.MaxHealth;
             target.HungerManager.Hunger = target.HungerManager.MaxHunger;
-            sender.SendMessage($"{ChatColors.LightPurple}{StringResources.Heal_1.Replace("{{target}}", targetname)}");
-            target.SendMessage($"{ChatColors.LightPurple}{StringResources.Heal_2.Replace("{{sender}}", sender.Username)}");
+            sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.LightPurple}{StringResources.Heal_1.Replace("{{target}}", targetname)}");
+            target.SendMessage($"{ContextConstants.Prefix}{ChatColors.LightPurple}{StringResources.Heal_2.Replace("{{sender}}", sender.Username)}");
         }
     }
 }

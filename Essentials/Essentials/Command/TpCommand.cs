@@ -43,7 +43,7 @@ namespace Essentials.Command
             var targetPlayer = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             if (targetPlayer == null)
             {
-                sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");
+                sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{StringResources.Tp_NoMatch}");
             } else
             {
                 sender.Teleport(new PlayerLocation()
@@ -66,7 +66,7 @@ namespace Essentials.Command
             var targettwo = ServerPlayers.ToList().Find(x => x.Value.Username == targettwon).Value;
             if (targetone == null || targettwo == null)
             {
-                sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");
+                sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{StringResources.Tp_NoMatch}");
             }
             else
             {
@@ -76,9 +76,12 @@ namespace Essentials.Command
                     Y = targettwo.KnownPosition.Y,
                     Z = targettwo.KnownPosition.Z
                 });
-                sender.SendMessage($"{ChatColors.Gold}{targetonen} {StringResources.Tp_SenderMsg1.Replace("{{target}}", targettwon)}");
-                targetone.SendMessage($"{ChatColors.Gold}{sender.Username} {StringResources.Tp_TargetMsg1.Replace("{{target}}", targettwon)}");
-                targettwo.SendMessage($"{ChatColors.Gold}{sender.Username} {StringResources.Tp_TargetMsg2.Replace("{{target}}", targetonen)}");
+                sender.SendMessage
+                    ($"{ContextConstants.Prefix}{ChatColors.Gold}{targetonen} {StringResources.Tp_SenderMsg1.Replace("{{target}}", targettwon)}");
+                targetone.SendMessage
+                    ($"{ContextConstants.Prefix}{ChatColors.Gold}{sender.Username} {StringResources.Tp_TargetMsg1.Replace("{{target}}", targettwon)}");
+                targettwo.SendMessage
+                    ($"{ContextConstants.Prefix}{ChatColors.Gold}{sender.Username} {StringResources.Tp_TargetMsg2.Replace("{{target}}", targetonen)}");
             }
         }
         [Command]
@@ -107,7 +110,7 @@ namespace Essentials.Command
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             if (target == null)
             {
-                sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");
+                sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{StringResources.Tp_NoMatch}");
             } else
             {
                 target.Teleport(new PlayerLocation()
@@ -117,8 +120,8 @@ namespace Essentials.Command
                     Z = tz
                 });
                 var xyz = $"X:{tx}, Y:{ty}, Z:{tz}";
-                sender.SendMessage($"{ChatColors.Red}{targetname} {StringResources.Tp_XYZMsg.Replace("{{xyz}}", xyz)}.");
-                target.SendMessage($"{ChatColors.Red}{sender.Username} {StringResources.Tp_XYZMsg2.Replace("{{xyz}}", xyz)}.");
+                sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{targetname} {StringResources.Tp_XYZMsg.Replace("{{xyz}}", xyz)}.");
+                target.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{sender.Username} {StringResources.Tp_XYZMsg2.Replace("{{xyz}}", xyz)}.");
             }  
         }
         [Command]
@@ -132,16 +135,16 @@ namespace Essentials.Command
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             if (target == null)
             {
-                sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_NoMatch}");
+                sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{StringResources.Tp_NoMatch}");
             } else
             {
                 var color = ChatColors.Red;
                 tpalist.Add(sender.Username + "," + targetname);
-                sender.SendMessage($"{ChatColors.Gold}{StringResources.Tp_S1.Replace("{{target}}", targetname)}");
-                target.SendMessage($"{ChatColors.Gold}{StringResources.Tp_T1.Replace("{{sender}}", sender.Username)}");
-                target.SendMessage($"{ChatColors.Gold}{StringResources.Tp_T2.Replace("{{color}}", color)}{ChatColors.Gold},");
-                target.SendMessage($"{ChatColors.Gold}{StringResources.Tp_T3.Replace("{{color}}", color)}");
-                target.SendMessage($"{ChatColors.Gold}{StringResources.Tp_T4}");
+                sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Gold}{StringResources.Tp_S1.Replace("{{target}}", targetname)}");
+                target.SendMessage($"{ContextConstants.Prefix}{ChatColors.Gold}{StringResources.Tp_T1.Replace("{{sender}}", sender.Username)}");
+                target.SendMessage($"{ContextConstants.Prefix}{ChatColors.Gold}{StringResources.Tp_T2.Replace("{{color}}", color)}{ChatColors.Gold},");
+                target.SendMessage($"{ContextConstants.Prefix}{ChatColors.Gold}{StringResources.Tp_T3.Replace("{{color}}", color)}");
+                target.SendMessage($"{ContextConstants.Prefix}{ChatColors.Gold}{StringResources.Tp_T4}");
             }
         }
         [Command]
@@ -158,8 +161,8 @@ namespace Essentials.Command
                 {
                     var ServerPlayers = sender.Level.Players;
                     var target = ServerPlayers.ToList().Find(x => x.Value.Username == pitem[0]).Value;
-                    sender.SendMessage($"{ChatColors.Gold}{StringResources.Tp_A1}");
-                    target.SendMessage($"{ChatColors.Gold}{StringResources.Tp_A2.Replace("{{sender}}", sender.Username)}");
+                    sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Gold}{StringResources.Tp_A1}");
+                    target.SendMessage($"{ContextConstants.Prefix}{ChatColors.Gold}{StringResources.Tp_A2.Replace("{{sender}}", sender.Username)}");
                     target.Teleport(new PlayerLocation()
                     {
                         X = sender.KnownPosition.X,
@@ -170,11 +173,11 @@ namespace Essentials.Command
                     return;
                 } else
                 {
-                    sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_P}");
+                    sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{StringResources.Tp_P}");
                     return;
                 }
             }
-            sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_P}");
+            sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{StringResources.Tp_P}");
         }
         [Command]
         public void tpdeny(Player sender)
@@ -190,18 +193,18 @@ namespace Essentials.Command
                 {
                     var ServerPlayers = sender.Level.Players;
                     var target = ServerPlayers.ToList().Find(x => x.Value.Username == pitem[0]).Value;
-                    sender.SendMessage($"{ChatColors.Gold}{StringResources.Tp_D1}");
-                    target.SendMessage($"{ChatColors.Gold}{StringResources.Tp_D2.Replace("{{sender}}", sender.Username)}");
+                    sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Gold}{StringResources.Tp_D1}");
+                    target.SendMessage($"{ContextConstants.Prefix}{ChatColors.Gold}{StringResources.Tp_D2.Replace("{{sender}}", sender.Username)}");
                     tpalist.Remove(item);
                     return;
                 }
                 else
                 {
-                    sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_P}");
+                    sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{StringResources.Tp_P}");
                     return;
                 }
             }
-            sender.SendMessage($"{ChatColors.Red}{StringResources.Tp_P}");
+            sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{StringResources.Tp_P}");
         }
     }
 }

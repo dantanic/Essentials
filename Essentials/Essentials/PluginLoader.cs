@@ -36,7 +36,7 @@ namespace Essentials
             SetUserLanguage();
             RegisterCommands();
             CreateFiles();
-            Console.WriteLine("[Essentials] " + StringResources.Essential_PluginOnEnabled);
+            Console.WriteLine(ContextConstants.PrefixNoColor + StringResources.Essential_PluginOnEnabled);
 
             Context.Server.PlayerFactory.PlayerCreated += (sender, args) =>
             {
