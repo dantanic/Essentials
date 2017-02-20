@@ -47,8 +47,7 @@ namespace Essentials.Command
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
             target.HealthManager.Kill();
-            target.SendMessage
-                ($"{ContextConstants.Prefix}{ChatColors.Red}{StringResources.Kill_DisplayMessage.Replace("{{killer}}", sender.Username)}");
+            target.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{StringResources.Kill_DisplayMessage.Replace("{{killer}}", sender.Username)}");
         }
     }
 }

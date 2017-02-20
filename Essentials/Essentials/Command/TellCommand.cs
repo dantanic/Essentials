@@ -26,7 +26,7 @@ namespace Essentials.Command
             this.Plugin = plugin;
         }
         [Command]
-        public void m(Player sender, string targetName, string message)
+        public void tell(Player sender, string targetName, string message)
         {
             if (!Essentials.VerifyPermission(sender, "m"))
             {
@@ -39,33 +39,27 @@ namespace Essentials.Command
                 sender.SendMessage(ContextConstants.Prefix + "플레이어가 존재하지 않습니다!");
             } else
             {
-                if (!Plugin.IsAFK(targetPlayer))
-                {
-                    var senderm = "[나 -> " + targetName + "]" + message;
-                    var tgm = "[" + targetName + " -> 나]" + message;
-                    sender.SendMessage(ContextConstants.Prefix + senderm);
-                    targetPlayer.SendMessage(ContextConstants.Prefix + tgm);
-                }
-                else
-                {
-                    var senderm = "[나 -> " + targetName + "]" + message;
-                    var tgm = "[" + targetName + " -> 나]" + message;
-                    sender.SendMessage(ContextConstants.Prefix + senderm);
-                    targetPlayer.SendMessage(ContextConstants.Prefix + tgm);
-                    sender.SendMessage(ContextConstants.Prefix + "상대방이 잠수 상태이므로 응답하지 않을 수 있습니다!");
-                }
+                var senderm = "[나 -> " + targetName + "]" + message;
+                var tgm = "[" + targetName + " -> 나]" + message;
+                sender.SendMessage(ContextConstants.Prefix + senderm);
+                targetPlayer.SendMessage(ContextConstants.Prefix + tgm);
             }
         }
 #region short command
         [Command]
         public void w(Player sender, string targetName, string message)
         {
-            m(sender, targetName, message);
+            tell(sender, targetName, message);
         }
         [Command]
         public void t(Player sender, string targetName, string message)
         {
-            m(sender, targetName, message);
+            tell(sender, targetName, message);
+        }
+        [Command]
+        public void m(Player sender, string targetName, string message)
+        {
+            tell(sender, targetName, message);
         }
 #endregion
     }
