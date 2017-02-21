@@ -18,7 +18,6 @@ using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
 using Essentials.Resources;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Essentials.Command;
 using MiNET.Utils;
 using Essentials.Permission;
@@ -54,7 +53,7 @@ namespace Essentials
                 File.Create(homePath);
             }
 
-            var banPath = IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.BanFile);
+            var banPath = ContextConstants.BanFile;
             if (!File.Exists(banPath))
             {
                 File.Create(banPath);
@@ -89,7 +88,6 @@ namespace Essentials
             Essentials plugin = new Essentials();
 
             Context.PluginManager.LoadCommands(new GamemodeCommand(plugin));
-            Context.PluginManager.LoadCommands(new HealCommand(plugin));
             Context.PluginManager.LoadCommands(new TellCommand(plugin));
             Context.PluginManager.LoadCommands(new TpCommand(plugin));
             Context.PluginManager.LoadCommands(new KillCommand(plugin));

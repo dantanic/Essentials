@@ -12,7 +12,7 @@
 */
 
 using System;
-using System.Collections.Generic;
+using System.Text;
 using MiNET;
 using MiNET.Net;
 using MiNET.Plugins.Attributes;
@@ -34,29 +34,27 @@ namespace Essentials
 
         public void PlayerJoin(object sender, PlayerEventArgs e)
         {
-            using (StreamReader reader = new StreamReader(IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.BanFile)))
-            {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    if (line == e.Player.Username)
-                    {
-                        e.Player.Disconnect(StringResources.Ban_DisconnectMsg);
-                        return;
-                    }
-                }
+            var file = IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.BanFile);
+            /* if (line == e.Player.Username)
+             {
+                 e.Player.Disconnect(StringResources.Ban_DisconnectMsg);
+                 return;
+             }
+             */
+            e.Player.SendMessage(file);
             var pl = e.Player;
             var name = pl.Username;
-            if(pl == null) throw new NotImplementedException();
+            if (pl == null) throw new NotImplementedException();
             pl.Level.BroadcastMessage($"§e{StringResources.JoinMessage.Replace("{{player}}", name)}");
-            }
+            Console.WriteLine($"{StringResources.JoinMessage.Replace("{{player}}", name)}");
         }
         public void PlayerLeave(object sender, PlayerEventArgs e)
         {
             var pl = e.Player;
             var name = pl.Username;
             if (pl == null) throw new NotImplementedException();
-            pl.Level.BroadcastMessage($"§e{StringResources.JoinMessage.Replace("{{player}}", name)}");
+            pl.Level.BroadcastMessage($"§e{StringResources.LeaveMessage.Replace("{{player}}", name)}");
+            Console.WriteLine($"{StringResources.LeaveMessage.Replace("{{player}}", name)}");
         }
     }
 }

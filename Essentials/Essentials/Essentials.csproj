@@ -84,7 +84,6 @@
     <Compile Include="Permission\CommandPermission.cs" />
     <Compile Include="Command\BanCommand.cs" />
     <Compile Include="Command\GamemodeCommand.cs" />
-    <Compile Include="Command\HealCommand.cs" />
     <Compile Include="Command\HomeCommand.cs" />
     <Compile Include="Command\KickCommand.cs" />
     <Compile Include="Command\KillCommand.cs" />

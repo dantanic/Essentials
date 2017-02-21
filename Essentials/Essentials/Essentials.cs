@@ -58,7 +58,7 @@ namespace Essentials
             var verify = true;
             if (permi[cmd].ToString() == "OP")
             {
-                if (!PermissionManager.Manager.IsOP(sender.Username))
+                if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
                 {
                     sender.SendMessage($"{ContextConstants.Prefix}{ChatColors.Red}{StringResources.Essentials_NoMatchPermission}");
                     verify = false;
