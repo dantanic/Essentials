@@ -26,6 +26,7 @@ namespace Essentials.Command
 {
     public class BanCommand
     {
+        List<string> blist = PluginLoader.banlist;
         private Essentials Plugin { get; set; }
         public BanCommand(Essentials plugin)
         {
@@ -41,18 +42,36 @@ namespace Essentials.Command
             var ServerPlayers = sender.Level.Players;
             var target = ServerPlayers.ToList().Find(x => x.Value.Username == targetname).Value;
 
-            using (StreamWriter writer = new StreamWriter
-                (IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.BanFile), 
-                true, System.Text.Encoding.UTF8))
+            using (StreamWriter writer = new StreamWriter(ContextConstants.BanFile, true, System.Text.Encoding.UTF8))
             {
                 writer.WriteLine(targetname);
+                blist.Add(targetname);
             }
 
             if (target != null)
             {
-                target.Disconnect(StringResources.Ban_DisconnectMsg);
+                target.Disconnect(StringResources.Ban_DisMsg);
             }
-            sender.SendMessage(ContextConstants.Prefix + StringResources.Ban_SendMsg.Replace("{{target}}", targetname));
+            sender.SendMessage(StringResources.Ban_SendMsg.Replace("{{target}}", targetname));
+        }
+        [Command]
+        public void pardon(Player sender, string targetname)
+        {
+            if (!Essentials.VerifyPermission(sender, "ban"))
+            {
+                return;
+            }
+            File.Delete("banlist.txt");
+            File.Create("banlist.txt");
+            blist.Remove(targetname);
+            using (StreamWriter writer = new StreamWriter(ContextConstants.BanFile, false, System.Text.Encoding.UTF8))
+            {
+                foreach (var item in blist)
+                {
+                    writer.WriteLine(item);
+                }
+            }
+            sender.Level.BroadcastMessage(StringResources.Ban_PardMsg.Replace("{{target}}", targetname));
         }
     }
 }

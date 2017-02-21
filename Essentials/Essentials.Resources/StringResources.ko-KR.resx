@@ -201,7 +201,7 @@
   <data name="Tp_T4" xml:space="preserve">
     <value>명령어를 입력해주세요.</value>
   </data>
-  <data name="s" xml:space="preserve">
+  <data name="Ban_DisMsg" xml:space="preserve">
     <value>당신은 차단되었습니다.</value>
   </data>
   <data name="Ban_SendMsg" xml:space="preserve">
@@ -218,5 +218,8 @@
   </data>
   <data name="me" xml:space="preserve">
     <value>나</value>
+  </data>
+  <data name="Ban_PardMsg" xml:space="preserve">
+    <value>{{target}}님의 차단을 해제했습니다.</value>
   </data>
 </root>

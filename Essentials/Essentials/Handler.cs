@@ -19,6 +19,7 @@ using MiNET.Plugins.Attributes;
 using System.IO;
 using Essentials.Resources;
 using Essentials.Util;
+using System.Collections.Generic;
 
 namespace Essentials
 {
@@ -34,17 +35,16 @@ namespace Essentials
 
         public void PlayerJoin(object sender, PlayerEventArgs e)
         {
-            var file = IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.BanFile);
-            /* if (line == e.Player.Username)
-             {
-                 e.Player.Disconnect(StringResources.Ban_DisconnectMsg);
-                 return;
-             }
-             */
-            e.Player.SendMessage(file);
             var pl = e.Player;
             var name = pl.Username;
             if (pl == null) throw new NotImplementedException();
+            foreach (var item in PluginLoader.banlist)
+            {
+                if (item == name)
+                {
+                    pl.Disconnect(StringResources.Ban_DisMsg);
+                }
+            }
             pl.Level.BroadcastMessage($"§e{StringResources.JoinMessage.Replace("{{player}}", name)}");
             Console.WriteLine($"{StringResources.JoinMessage.Replace("{{player}}", name)}");
         }

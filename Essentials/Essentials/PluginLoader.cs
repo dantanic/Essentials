@@ -22,6 +22,7 @@ using Essentials.Command;
 using MiNET.Utils;
 using Essentials.Permission;
 using System.Text;
+using System.Collections.Generic;
 using Essentials.Util;
 
 namespace Essentials
@@ -29,16 +30,18 @@ namespace Essentials
     [Plugin(PluginName = "Essentials", Description = "에센셜 플러그인", PluginVersion = "1.0", Author = "PIEA Organization")]
     public class PluginLoader : Plugin
     {
-        
+        public static List<string> banlist = new List<string>();
         protected override void OnEnable()
         {
             SetUserLanguage();
             RegisterCommands();
             CreateFiles();
+            ReadFile();
             Console.WriteLine(ContextConstants.PrefixNoColor + StringResources.Essential_PluginOnEnabled);
 
             Context.Server.PlayerFactory.PlayerCreated += (sender, args) =>
             {
+                var file = IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.BanFile);
                 Player player = args.Player;
                 player.PlayerJoin += new Handler().PlayerJoin;
                 player.PlayerLeave += new Handler().PlayerLeave;
@@ -94,6 +97,18 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new KickCommand(plugin));
             Context.PluginManager.LoadCommands(new BanCommand(plugin));
             //Context.PluginManager.LoadCommands(new HomeCommand(plugin));
+        }
+        
+        private void ReadFile()
+        {
+            using (StreamReader reader = new StreamReader("banlist.txt"))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    banlist.Add(line);
+                }
+            }
         }
 
         private void SetUserLanguage()

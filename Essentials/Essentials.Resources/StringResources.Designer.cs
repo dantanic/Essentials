@@ -63,9 +63,18 @@ namespace Essentials.Resources {
         /// <summary>
         ///   You are banned.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        public static string Ban_DisconnectMsg {
+        public static string Ban_DisMsg {
             get {
-                return ResourceManager.GetString("Ban_DisconnectMsg", resourceCulture);
+                return ResourceManager.GetString("Ban_DisMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {{target}} was canceled ban.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Ban_PardMsg {
+            get {
+                return ResourceManager.GetString("Ban_PardMsg", resourceCulture);
             }
         }
         

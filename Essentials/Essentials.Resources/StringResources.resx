@@ -206,7 +206,7 @@
   <data name="Tp_T4" xml:space="preserve">
     <value>enter the command.</value>
   </data>
-  <data name="Ban_DisconnectMsg" xml:space="preserve">
+  <data name="Ban_DisMsg" xml:space="preserve">
     <value>You are banned.</value>
   </data>
   <data name="Ban_SendMsg" xml:space="preserve">
@@ -223,5 +223,8 @@
   </data>
   <data name="me" xml:space="preserve">
     <value>me</value>
+  </data>
+  <data name="Ban_PardMsg" xml:space="preserve">
+    <value>{{target}} was canceled ban.</value>
   </data>
 </root>
