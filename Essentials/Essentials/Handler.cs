@@ -56,7 +56,7 @@ namespace Essentials
             var pl = e.Player;
             var name = pl.Username;
             if (pl == null) throw new NotImplementedException();
-            pl.Level.BroadcastMessage($"§e{StringResources.JoinMessage.Replace("{{player}}", name)}");
+            pl.Level.BroadcastMessage($"§e{StringResources.LeaveMessage.Replace("{{player}}", name)}");
         }
     }
 }
