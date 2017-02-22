@@ -15,7 +15,7 @@ Command List
 - __/tp__ : Teleports the given player (or yourself) to another player or coordinates
 - __/kill__ : Commit suicide or kill other players
 - __/kick__ : Removes the specified player from the server
-
+- __/ban__ : Prevents the specified player from using this server _/pardon is developing_
 ----------
 
 Function
@@ -40,5 +40,8 @@ TODO LIST
 - [ ] /list
 <br>Lists all online players
 
+- [ ] /pardon
+<br>Allows the specified player to use this server
+
 - [ ] /help
-<br>Shows the help menu
+<br>Shows the help menu.
