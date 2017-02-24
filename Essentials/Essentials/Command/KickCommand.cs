@@ -22,17 +22,12 @@ using Essentials.Resources;
 
 namespace Essentials.Command
 {
-    public class KickCommand
+    public class KickCommand : BaseCommand
     {
-        private Essentials Plugin { get; set; }
-        public KickCommand(Essentials plugin)
-        {
-            this.Plugin = plugin;
-        }
         [Command]
         public void kick(Player sender, string targetname)
         {
-            if (!Essentials.VerifyPermission(sender, "kick"))
+            if (!VerifyPermission(sender, "kick"))
             {
                 return;
             }
@@ -44,7 +39,7 @@ namespace Essentials.Command
         [Command]
         public void kick(Player sender, string targetname, string msg)
         {
-            if (!Essentials.VerifyPermission(sender, "kick"))
+            if (!VerifyPermission(sender, "kick"))
             {
                 return;
             }

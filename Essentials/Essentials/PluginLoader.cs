@@ -27,25 +27,16 @@ using Essentials.Util;
 
 namespace Essentials
 {
-    [Plugin(PluginName = "Essentials", Description = "에센셜 플러그인", PluginVersion = "1.0", Author = "PIEA Organization")]
-    public class PluginLoader : Plugin
+    public class PluginLoader : Essentials
     {
         public static List<string> banlist = new List<string>();
         protected override void OnEnable()
         {
             SetUserLanguage();
-            RegisterCommands();
+            // RegisterCommands();
             CreateFiles();
             ReadFile();
             Console.WriteLine(ContextConstants.PrefixNoColor + StringResources.Essential_PluginOnEnabled);
-
-            Context.Server.PlayerFactory.PlayerCreated += (sender, args) =>
-            {
-                var file = IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.BanFile);
-                Player player = args.Player;
-                player.PlayerJoin += new Handler().PlayerJoin;
-                player.PlayerLeave += new Handler().PlayerLeave;
-            };
         }
 
         private void CreateFiles()
@@ -85,7 +76,7 @@ namespace Essentials
                 File.WriteAllText(permPath, json, Encoding.UTF8);
             }
         }
-
+        /*
         private void RegisterCommands()
         {
             Essentials plugin = new Essentials();
@@ -98,7 +89,7 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new BanCommand(plugin));
             //Context.PluginManager.LoadCommands(new HomeCommand(plugin));
         }
-        
+        */
         private void ReadFile()
         {
             using (StreamReader reader = new StreamReader("banlist.txt"))

@@ -13,27 +13,26 @@
 
 using MiNET;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using MiOP;
 using System;
 using System.IO;
-using Essentials.Util;
+using MiNET.Plugins;
+using MiNET.Plugins.Attributes;
+using Essentials.Resources;
+using Newtonsoft.Json;
+using Essentials.Command;
+using MiNET.Utils;
 using Essentials.Permission;
 using System.Text;
-using MiNET.Utils;
-using Essentials.Resources;
+using Essentials.Util;
+using Newtonsoft.Json.Linq;
+using MiOP;
 
 namespace Essentials
 {
-    public class Essentials
+    [Plugin(PluginName = "Essentials", Description = "에센셜 플러그인", PluginVersion = "1.0", Author = "PIEA Organization")]
+    public class Essentials : Plugin
     {
         private List<string> AFKList = new List<string>();
-
-        public Essentials()
-        {
-
-        }
 
         public void SetAFK(Player player)
         {

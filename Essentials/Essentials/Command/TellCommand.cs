@@ -20,13 +20,8 @@ using MiNET.Utils;
 
 namespace Essentials.Command
 {
-    public class TellCommand
+    public class TellCommand : BaseCommand
     {
-        private Essentials Plugin { get; set; }
-        public TellCommand(Essentials plugin)
-        {
-            this.Plugin = plugin;
-        }
         [Command]
         public void tell(Player sender, string targetName, string message)
         {

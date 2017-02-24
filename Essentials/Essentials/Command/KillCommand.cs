@@ -21,17 +21,12 @@ using Essentials.Resources;
 
 namespace Essentials.Command
 {
-    public class KillCommand
+    public class KillCommand : BaseCommand
     {
-        private Essentials Plugin { get; set; }
-        public KillCommand(Essentials plugin)
-        {
-            this.Plugin = plugin;
-        }
         [Command]
         public void kill(Player sender)
         {
-            if (!Essentials.VerifyPermission(sender, "kill"))
+            if (!VerifyPermission(sender, "kill"))
             {
                 return;
             }
@@ -40,7 +35,7 @@ namespace Essentials.Command
         [Command]
         public void kill(Player sender, string targetname)
         {
-            if (!Essentials.VerifyPermission(sender, "kill"))
+            if (!VerifyPermission(sender, "kill"))
             {
                 return;
             }

@@ -81,6 +81,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\BaseCommand.cs" />
+    <Compile Include="Handler\EventHandler\BaseEventHandler.cs" />
+    <Compile Include="Handler\EventHandler\EventLoader.cs" />
+    <Compile Include="Handler\EventHandler\PlayerJoinEvent.cs" />
+    <Compile Include="Handler\EventHandler\PlayerLeaveEvent.cs" />
+    <Compile Include="Handler\PacketHandler\BasePacketHandler.cs" />
+    <Compile Include="Handler\PacketHandler\McpeTextPacket.cs" />
     <Compile Include="Permission\CommandPermission.cs" />
     <Compile Include="Command\BanCommand.cs" />
     <Compile Include="Command\GamemodeCommand.cs" />
@@ -89,9 +96,8 @@
     <Compile Include="Command\KillCommand.cs" />
     <Compile Include="Command\TellCommand.cs" />
     <Compile Include="Command\TpCommand.cs" />
-    <Compile Include="ContextConstants.cs" />
+    <Compile Include="Util\ContextConstants.cs" />
     <Compile Include="Essentials.cs" />
-    <Compile Include="Handler.cs" />
     <Compile Include="Permission\Permissions.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,6 +114,7 @@
       <Name>Essentials.Resources</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

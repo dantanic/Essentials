@@ -22,20 +22,14 @@ using Essentials.Resources;
 
 namespace Essentials.Command
 {
-    public class TpCommand
+    public class TpCommand : BaseCommand
     {
-        private Essentials Plugin { get; set; }
-        public TpCommand(Essentials plugin)
-        {
-            this.Plugin = plugin;
-        }
-
         List<string> tpalist = new List<string>();
         
         [Command]
         public void tp(Player sender, string targetname)
         {
-            if (!Essentials.VerifyPermission(sender, "tp"))
+            if (!VerifyPermission(sender, "tp"))
             {
                 return;
             }
@@ -57,7 +51,7 @@ namespace Essentials.Command
         [Command]
         public void tp(Player sender, string targetonen, string targettwon)
         {
-            if (!Essentials.VerifyPermission(sender, "tp"))
+            if (!VerifyPermission(sender, "tp"))
             {
                 return;
             }
@@ -87,7 +81,7 @@ namespace Essentials.Command
         [Command]
         public void tp(Player sender, int tx, int ty, int tz)
         {
-            if (!Essentials.VerifyPermission(sender, "tp"))
+            if (!VerifyPermission(sender, "tp"))
             {
                 return;
             }
@@ -101,7 +95,7 @@ namespace Essentials.Command
         [Command]
         public void tp(Player sender, string targetname, int tx, int ty, int tz)
         {
-            if (!Essentials.VerifyPermission(sender, "tp"))
+            if (!VerifyPermission(sender, "tp"))
             {
                 return;
             }
@@ -127,7 +121,7 @@ namespace Essentials.Command
         [Command]
         public void tpa(Player sender, string targetname)
         {
-            if (!Essentials.VerifyPermission(sender, "tpa"))
+            if (!VerifyPermission(sender, "tpa"))
             {
                 return;
             }
@@ -150,7 +144,7 @@ namespace Essentials.Command
         [Command]
         public void tpaccept(Player sender)
         {
-            if (!Essentials.VerifyPermission(sender, "tpaccept"))
+            if (!VerifyPermission(sender, "tpaccept"))
             {
                 return;
             }
@@ -182,7 +176,7 @@ namespace Essentials.Command
         [Command]
         public void tpdeny(Player sender)
         {
-            if (!Essentials.VerifyPermission(sender, "tpdenny"))
+            if (!VerifyPermission(sender, "tpdenny"))
             {
                 return;
             }

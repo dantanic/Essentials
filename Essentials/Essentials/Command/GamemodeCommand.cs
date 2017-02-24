@@ -21,19 +21,12 @@ using Essentials.Resources;
 
 namespace Essentials.Command
 {
-    public class GamemodeCommand
+    public class GamemodeCommand : BaseCommand
     {
-        private Essentials Plugin { get; set; }
-
-        public GamemodeCommand(Essentials plugin)
-        {
-            this.Plugin = plugin;
-        }
-
         [Command]
         public void Gamemode(Player sender)
         {
-            if (!Essentials.VerifyPermission(sender, "gamemode"))
+            if (!VerifyPermission(sender, "gamemode"))
             {
                 return;
             }
@@ -46,7 +39,7 @@ namespace Essentials.Command
         [Command]
         public void Gamemode(Player sender, int gamemodeValue)
         {
-            if (!Essentials.VerifyPermission(sender, "gamemode"))
+            if (!VerifyPermission(sender, "gamemode"))
             {
                 return;
             }
@@ -66,7 +59,7 @@ namespace Essentials.Command
         [Command]
         public void Gamemode(Player sender, int gamemodeValue, string targetName)
         {
-            if (!Essentials.VerifyPermission(sender, "gamemode"))
+            if (!VerifyPermission(sender, "gamemode"))
             {
                 return;
             }

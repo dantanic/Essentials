@@ -24,18 +24,14 @@ using Essentials.Util;
 
 namespace Essentials.Command
 {
-    public class BanCommand
+    public class BanCommand : BaseCommand
     {
         List<string> blist = PluginLoader.banlist;
-        private Essentials Plugin { get; set; }
-        public BanCommand(Essentials plugin)
-        {
-            this.Plugin = plugin;
-        }
+
         [Command]
         public void ban(Player sender, string targetname)
         {
-            if (!Essentials.VerifyPermission(sender, "ban"))
+            if (!VerifyPermission(sender, "ban"))
             {
                 return;
             }
@@ -57,7 +53,7 @@ namespace Essentials.Command
         [Command]
         public void pardon(Player sender, string targetname)
         {
-            if (!Essentials.VerifyPermission(sender, "ban"))
+            if (!VerifyPermission(sender, "ban"))
             {
                 return;
             }
