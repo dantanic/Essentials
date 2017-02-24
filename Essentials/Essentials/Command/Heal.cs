@@ -8,13 +8,11 @@
        \ \__\    \ \__\ \_______\ \__\ \__\
         \|__|     \|__|\|_______|\|__|\|__|          
     
-    PIEA, The MiNET plugins development organization.                          
+    PIEA, The MiNET plugins development organization.         
 */
-
-namespace Essentials.Handler.EventHandler
+namespace Essentials.Command
 {
-    public abstract class BaseEventHandler : Essentials
+    public class Heal : Command
     {
-
     }
 }

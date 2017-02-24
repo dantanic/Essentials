@@ -1,10 +1,19 @@
-﻿using Essentials.Resources;
+﻿
+/*
+     ________  ___  _______   ________     
+    |\   __  \|\  \|\  ___ \ |\   __  \    
+    \ \  \|\  \ \  \ \   __/|\ \  \|\  \   
+     \ \   ____\ \  \ \  \_|/_\ \   __  \  
+      \ \  \___|\ \  \ \  \_|\ \ \  \ \  \ 
+       \ \__\    \ \__\ \_______\ \__\ \__\
+        \|__|     \|__|\|_______|\|__|\|__|          
+    
+    PIEA, The MiNET plugins development organization.                          
+*/
+
+using Essentials.Resources;
 using MiNET;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Essentials.Handler.EventHandler
 {
@@ -14,6 +23,7 @@ namespace Essentials.Handler.EventHandler
         {
             var pl = e.Player;
             var name = pl.Username;
+
             if (pl == null) throw new NotImplementedException();
             pl.Level.BroadcastMessage($"§e{StringResources.JoinMessage.Replace("{{player}}", name)}");
         }

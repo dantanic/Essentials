@@ -1,10 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+/*
+     ________  ___  _______   ________     
+    |\   __  \|\  \|\  ___ \ |\   __  \    
+    \ \  \|\  \ \  \ \   __/|\ \  \|\  \   
+     \ \   ____\ \  \ \  \_|/_\ \   __  \  
+      \ \  \___|\ \  \ \  \_|\ \ \  \ \  \ 
+       \ \__\    \ \__\ \_______\ \__\ \__\
+        \|__|     \|__|\|_______|\|__|\|__|          
+    
+    PIEA, The MiNET plugins development organization.         
+*/
+
+using System;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Essentials.Util
 {

@@ -11,9 +11,9 @@
     PIEA, The MiNET plugins development organization.                          
 */
 
-namespace Essentials.Handler.EventHandler
+namespace Essentials.Command
 {
-    public abstract class BaseEventHandler : Essentials
+    public abstract class Command : Essentials
     {
 
     }

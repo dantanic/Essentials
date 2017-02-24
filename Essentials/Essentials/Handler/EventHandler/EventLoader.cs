@@ -1,10 +1,17 @@
-﻿using Essentials.Util;
+﻿
+/*
+     ________  ___  _______   ________     
+    |\   __  \|\  \|\  ___ \ |\   __  \    
+    \ \  \|\  \ \  \ \   __/|\ \  \|\  \   
+     \ \   ____\ \  \ \  \_|/_\ \   __  \  
+      \ \  \___|\ \  \ \  \_|\ \ \  \ \  \ 
+       \ \__\    \ \__\ \_______\ \__\ \__\
+        \|__|     \|__|\|_______|\|__|\|__|          
+    
+    PIEA, The MiNET plugins development organization.                          
+*/
+
 using MiNET;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Essentials.Handler.EventHandler
 {
@@ -14,7 +21,6 @@ namespace Essentials.Handler.EventHandler
         {
             Context.Server.PlayerFactory.PlayerCreated += (sender, args) =>
             {
-                var file = IO.GetFilePath(ContextConstants.DefaultDir, ContextConstants.BanFile);
                 Player player = args.Player;
                 player.PlayerJoin += new PlayerJoinEvent().PlayerJoin;
                 player.PlayerLeave += new PlayerLeaveEvent().PlayerLeave;
