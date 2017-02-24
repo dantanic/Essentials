@@ -19,6 +19,7 @@ using MiNET.Plugins.Attributes;
 using MiNET.Utils;
 using MiOP;
 using Essentials.Resources;
+using Essentials.Util;
 
 namespace Essentials.Command
 {

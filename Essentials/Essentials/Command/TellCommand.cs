@@ -17,6 +17,7 @@ using MiNET;
 using MiNET.Plugins.Attributes;
 using Essentials.Resources;
 using MiNET.Utils;
+using Essentials.Util;
 
 namespace Essentials.Command
 {
