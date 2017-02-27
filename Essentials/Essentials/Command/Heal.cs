@@ -10,9 +10,39 @@
     
     PIEA, The MiNET plugins development organization.         
 */
+
+using MiNET;
+using MiNET.Plugins.Attributes;
+using MiNET.Utils;
+
 namespace Essentials.Command
 {
-    public class Heal : Command
+    public class Heal
     {
+        private Essentials Plugin;
+
+        public Heal(Essentials plugin)
+        {
+            Plugin = plugin;
+        }
+
+        [Command(Name = "heal", Description = "Heal your health or other player.")]
+        public void Execute(Player sender, int amount)
+        {
+            Plugin.SetHealth(sender, amount);
+
+            sender.SendMessage(ChatColors.Green + "Healed.");
+        }
+
+        [Command(Name = "heal", Description = "Heal your health or other player.")]
+        public void Execute(Player sender, string player, int amount)
+        {
+            if(Plugin.GetPlayer(player, sender.Level) != null)
+            {
+                Plugin.SetHealth(Plugin.GetPlayer(player, sender.Level), amount);
+
+                sender.SendMessage(ChatColors.Green + "Healed.");
+            }
+        }
     }
 }

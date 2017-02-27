@@ -11,7 +11,6 @@
     PIEA, The MiNET plugins development organization.         
 */
 
-using Essentials.Resources;
 using MiNET;
 using MiNET.Plugins.Attributes;
 using MiNET.Utils;
@@ -20,7 +19,7 @@ using System.Linq;
 
 namespace Essentials.Command.Teleport
 {
-    public class TPA : Command
+    public class TPA
     {
         /*List<string> tpalist = new List<string>();
         [Command]

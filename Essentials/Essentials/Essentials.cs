@@ -11,49 +11,144 @@
     PIEA, The MiNET plugins development organization.                          
 */
 
-using Essentials.Resources;
-using Essentials.Util;
+using Essentials.Command;
+using Essentials.Command.Home;
+
 using MiNET;
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
+using MiNET.Worlds;
 using MiNET.Utils;
-using MiOP;
-using Newtonsoft.Json.Linq;
-using System.IO;
-using System.Text;
+
+using System.Collections.Generic; 
+using System.Linq; 
 
 namespace Essentials
 {
-    [Plugin(PluginName = "Essentials", Description = "에센셜 플러그인", PluginVersion = "1.0", Author = "PIEA Organization")]
+    [Plugin(PluginName = "Essentials", Description = "An essential plugin.", PluginVersion = "1.0", Author = "PIEA Organization")]
     public class Essentials : Plugin
     {
+        private Dictionary<Player, PlayerLocation> Home = new Dictionary<Player, PlayerLocation>();
 
-        public const string Prefix = "[Essentials]";
+        private List<Player> AFK = new List<Player>();
 
-        public static bool VerifyPermission(Player sender, string cmd)
+        protected override void OnEnable()
         {
-            JObject permi = JObject.Parse(File.ReadAllText
-                (IO.GetFilePath("Essentials", "permissions.json"), Encoding.UTF8));
+            Context.PluginManager.LoadCommands(new Home(this));
+            Context.PluginManager.LoadCommands(new SetHome(this));
+            Context.PluginManager.LoadCommands(new AFK(this));
+            Context.PluginManager.LoadCommands(new Broadcast(this));
+            Context.PluginManager.LoadCommands(new Fly(this));
+            Context.PluginManager.LoadCommands(new Getpos(this));
+            Context.PluginManager.LoadCommands(new Heal(this));
+        }
 
-            var verify = true;
-            if (permi[cmd].ToString() == "OP")
+        /*
+             ___  ___  ________  _____ ______   _______      
+            |\  \|\  \|\   __  \|\   _ \  _   \|\  ___ \     
+            \ \  \\\  \ \  \|\  \ \  \\\__\ \  \ \   __/|    
+             \ \   __  \ \  \\\  \ \  \\|__| \  \ \  \_|/__  
+              \ \  \ \  \ \  \\\  \ \  \    \ \  \ \  \_|\ \ 
+               \ \__\ \__\ \_______\ \__\    \ \__\ \_______\
+                \|__|\|__|\|_______|\|__|     \|__|\|_______|
+        */
+
+        public void SetHome(Player player, PlayerLocation pos)
+        {
+            if (Home.ContainsKey(player)) Home.Remove(player);
+
+            Home.Add(player, pos);
+        }
+        
+        public PlayerLocation GetHome(Player player)
+        {
+            if (!Home.ContainsKey(player)) return null;
+
+            return Home[player];
+        }
+
+        /*
+             _________  _______   ___       _______   ________  ________  ________  _________   
+            |\___   ___\\  ___ \ |\  \     |\  ___ \ |\   __  \|\   __  \|\   __  \|\___   ___\ 
+            \|___ \  \_\ \   __/|\ \  \    \ \   __/|\ \  \|\  \ \  \|\  \ \  \|\  \|___ \  \_| 
+                 \ \  \ \ \  \_|/_\ \  \    \ \  \_|/_\ \   ____\ \  \\\  \ \   _  _\   \ \  \  
+                  \ \  \ \ \  \_|\ \ \  \____\ \  \_|\ \ \  \___|\ \  \\\  \ \  \\  \|   \ \  \ 
+                   \ \__\ \ \_______\ \_______\ \_______\ \__\    \ \_______\ \__\\ _\    \ \__\
+                    \|__|  \|_______|\|_______|\|_______|\|__|     \|_______|\|__|\|__|    \|__|                                                                                   
+        */
+
+        /*
+             ________  ________ ___  __       
+            |\   __  \|\  _____\\  \|\  \     
+            \ \  \|\  \ \  \__/\ \  \/  /|_   
+             \ \   __  \ \   __\\ \   ___  \  
+              \ \  \ \  \ \  \_| \ \  \\ \  \ 
+               \ \__\ \__\ \__\   \ \__\\ \__\
+                \|__|\|__|\|__|    \|__| \|__|
+        */
+
+        public void SetAFK(Player player) => AFK.Add(player);
+
+        public void RemoveAFK(Player player) => AFK.Remove(player);
+
+        public bool GetAFK(Player player)
+        {
+            return AFK.Contains(player);
+        }
+
+        /*
+             ________  ________  ________  ________  ________  ________  ________  ________  _________   
+            |\   __  \|\   __  \|\   __  \|\   __  \|\   ___ \|\   ____\|\   __  \|\   ____\|\___   ___\ 
+            \ \  \|\ /\ \  \|\  \ \  \|\  \ \  \|\  \ \  \_|\ \ \  \___|\ \  \|\  \ \  \___|\|___ \  \_| 
+             \ \   __  \ \   _  _\ \  \\\  \ \   __  \ \  \ \\ \ \  \    \ \   __  \ \_____  \   \ \  \  
+              \ \  \|\  \ \  \\  \\ \  \\\  \ \  \ \  \ \  \_\\ \ \  \____\ \  \ \  \|____|\  \   \ \  \ 
+               \ \_______\ \__\\ _\\ \_______\ \__\ \__\ \_______\ \_______\ \__\ \__\____\_\  \   \ \__\
+                \|_______|\|__|\|__|\|_______|\|__|\|__|\|_______|\|_______|\|__|\|__|\_________\   \|__|                                                                         
+                                                                                     \|_________|                                                                                                                  
+        */
+
+        public string GetMessage(string[] text)
+        {
+            string message = string.Empty;
+
+            for (int i = 0; i < text.Length; i++)
             {
-                if (!PermissionManager.Manager.CheckCurrentUserPermission(sender))
-                {
-                    sender.SendMessage($"{Prefix}{ChatColors.Red}{StringResources.Essentials_NoMatchPermission}");
-                    verify = false;
-                }
-            }
-            else if (permi[cmd].ToString() == "ADMIN")
-            {
-                if (!PermissionManager.Manager.IsAdmin(sender.Username))
-                {
-                    sender.SendMessage($"{Prefix}{ChatColors.Red}{StringResources.Essentials_NoMatchPermission}");
-                    verify = false;
-                }
+                message += text[i];
             }
 
-            return verify;
+            return message;
+        }
+
+        /*
+             ___  ___  _______   ________  ___          
+            |\  \|\  \|\  ___ \ |\   __  \|\  \         
+            \ \  \\\  \ \   __/|\ \  \|\  \ \  \        
+             \ \   __  \ \  \_|/_\ \   __  \ \  \       
+              \ \  \ \  \ \  \_|\ \ \  \ \  \ \  \____  
+               \ \__\ \__\ \_______\ \__\ \__\ \_______\
+                \|__|\|__|\|_______|\|__|\|__|\|_______|
+        */
+
+        public void SetHealth(Player player, int amount)
+        {
+            HealthManager healthmanager = new HealthManager(player);
+
+            healthmanager.Health = healthmanager.Health + amount;
+        }
+
+        /*
+             ________  _______   ________ ________  ___  ___  ___   _________   
+            |\   ___ \|\  ___ \ |\  _____\\   __  \|\  \|\  \|\  \ |\___   ___\ 
+            \ \  \_|\ \ \   __/|\ \  \__/\ \  \|\  \ \  \\\  \ \  \\|___ \  \_| 
+             \ \  \ \\ \ \  \_|/_\ \   __\\ \   __  \ \  \\\  \ \  \    \ \  \  
+              \ \  \_\\ \ \  \_|\ \ \  \_| \ \  \ \  \ \  \\\  \ \  \____\ \  \ 
+               \ \_______\ \_______\ \__\   \ \__\ \__\ \_______\ \_______\ \__\
+                \|_______|\|_______|\|__|    \|__|\|__|\|_______|\|_______|\|__|
+        */
+
+        public Player GetPlayer(string player, Level level)
+        {
+            return level.Players.ToList().Find(x => x.Value.Username.ToLower().Contains(player)).Value ?? null;
         }
     }
 }

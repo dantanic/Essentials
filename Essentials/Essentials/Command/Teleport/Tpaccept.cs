@@ -13,7 +13,7 @@
 
 namespace Essentials.Command.Teleport
 {
-    public class Tpaccept : Command
+    public class Tpaccept
     {
         /*[Command]
         public void tpaccept(Player sender)

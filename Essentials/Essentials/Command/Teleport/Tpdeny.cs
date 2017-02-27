@@ -13,7 +13,7 @@
 
 namespace Essentials.Command.Teleport
 {
-    public class Tpdeny : Command
+    public class Tpdeny
     {
         /*[Command]
         public void tpdeny(Player sender)

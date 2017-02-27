@@ -15,23 +15,23 @@ using MiNET;
 using MiNET.Plugins.Attributes;
 using MiNET.Utils;
 
-namespace Essentials.Command.Home
+namespace Essentials.Command
 {
-    public class SetHome
+    public class Fly
     {
         private Essentials Plugin;
 
-        public SetHome(Essentials plugin)
+        public Fly(Essentials plugin)
         {
             Plugin = plugin;
         }
 
-        [Command(Name = "sethome", Description = "Set your home position.")]
+        [Command(Name = "fly", Description = "Allow flying.")]
         public void Execute(Player sender)
         {
-            Plugin.SetHome(sender, sender.KnownPosition);
+            sender.AllowFly = true;
 
-            sender.SendMessage(ChatColors.Yellow + "Home set.");
+            sender.SendMessage(ChatColors.Green + "You can fly.");
         }
     }
 }

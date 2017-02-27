@@ -15,23 +15,23 @@ using MiNET;
 using MiNET.Plugins.Attributes;
 using MiNET.Utils;
 
-namespace Essentials.Command.Home
+namespace Essentials.Command
 {
-    public class SetHome
+    public class Getpos
     {
         private Essentials Plugin;
 
-        public SetHome(Essentials plugin)
+        public Getpos(Essentials plugin)
         {
             Plugin = plugin;
         }
 
-        [Command(Name = "sethome", Description = "Set your home position.")]
+        [Command(Name = "getpos", Description = "Get your position.")]
         public void Execute(Player sender)
         {
-            Plugin.SetHome(sender, sender.KnownPosition);
+            PlayerLocation pos = sender.KnownPosition;
 
-            sender.SendMessage(ChatColors.Yellow + "Home set.");
+            sender.SendMessage(ChatColors.Green + $"Your position: X.{pos.X} Y.{pos.Y} Z.{pos.Z}");
         }
     }
 }
