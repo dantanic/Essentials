@@ -29,9 +29,14 @@ namespace Essentials.Command
         [Command(Name = "broadcast", Description = "Broadcast messages.")]
         public void Execute(Player sender, params string[] text)
         {
-            string message = Plugin.GetMessage(text);
+            string message = string.Empty;
 
-            sender.SendMessage(ChatColors.LightPurple + "[Server] " + message);
+            for (int i = 0; i < text.Length; i++)
+            {
+                message += text[i];
+            }
+
+            sender.Level.BroadcastMessage(ChatColors.LightPurple + "[NOTICE] " + message);
         }
     }
 }

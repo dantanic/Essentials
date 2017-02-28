@@ -37,6 +37,7 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new Home(this));
             Context.PluginManager.LoadCommands(new SetHome(this));
             Context.PluginManager.LoadCommands(new AFK(this));
+            Context.PluginManager.LoadCommands(new Bomb(this));
             Context.PluginManager.LoadCommands(new Broadcast(this));
             Context.PluginManager.LoadCommands(new Fly(this));
             Context.PluginManager.LoadCommands(new Getpos(this));
@@ -94,46 +95,6 @@ namespace Essentials
         public bool GetAFK(Player player)
         {
             return AFK.Contains(player);
-        }
-
-        /*
-             ________  ________  ________  ________  ________  ________  ________  ________  _________   
-            |\   __  \|\   __  \|\   __  \|\   __  \|\   ___ \|\   ____\|\   __  \|\   ____\|\___   ___\ 
-            \ \  \|\ /\ \  \|\  \ \  \|\  \ \  \|\  \ \  \_|\ \ \  \___|\ \  \|\  \ \  \___|\|___ \  \_| 
-             \ \   __  \ \   _  _\ \  \\\  \ \   __  \ \  \ \\ \ \  \    \ \   __  \ \_____  \   \ \  \  
-              \ \  \|\  \ \  \\  \\ \  \\\  \ \  \ \  \ \  \_\\ \ \  \____\ \  \ \  \|____|\  \   \ \  \ 
-               \ \_______\ \__\\ _\\ \_______\ \__\ \__\ \_______\ \_______\ \__\ \__\____\_\  \   \ \__\
-                \|_______|\|__|\|__|\|_______|\|__|\|__|\|_______|\|_______|\|__|\|__|\_________\   \|__|                                                                         
-                                                                                     \|_________|                                                                                                                  
-        */
-
-        public string GetMessage(string[] text)
-        {
-            string message = string.Empty;
-
-            for (int i = 0; i < text.Length; i++)
-            {
-                message += text[i];
-            }
-
-            return message;
-        }
-
-        /*
-             ___  ___  _______   ________  ___          
-            |\  \|\  \|\  ___ \ |\   __  \|\  \         
-            \ \  \\\  \ \   __/|\ \  \|\  \ \  \        
-             \ \   __  \ \  \_|/_\ \   __  \ \  \       
-              \ \  \ \  \ \  \_|\ \ \  \ \  \ \  \____  
-               \ \__\ \__\ \_______\ \__\ \__\ \_______\
-                \|__|\|__|\|_______|\|__|\|__|\|_______|
-        */
-
-        public void SetHealth(Player player, int amount)
-        {
-            HealthManager healthmanager = new HealthManager(player);
-
-            healthmanager.Health = healthmanager.Health + amount;
         }
 
         /*

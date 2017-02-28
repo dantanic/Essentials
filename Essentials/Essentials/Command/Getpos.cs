@@ -31,7 +31,7 @@ namespace Essentials.Command
         {
             PlayerLocation pos = sender.KnownPosition;
 
-            sender.SendMessage(ChatColors.Green + $"Your position: X.{pos.X} Y.{pos.Y} Z.{pos.Z}");
+            sender.SendMessage(ChatColors.Green + $"Your position: X. {pos.X} Y. {pos.Y} Z. {pos.Z}");
         }
     }
 }

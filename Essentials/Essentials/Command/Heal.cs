@@ -29,7 +29,9 @@ namespace Essentials.Command
         [Command(Name = "heal", Description = "Heal your health or other player.")]
         public void Execute(Player sender, int amount)
         {
-            Plugin.SetHealth(sender, amount);
+            HealthManager healthmanager = new HealthManager(sender);
+
+            healthmanager.Health = healthmanager.Health + amount;
 
             sender.SendMessage(ChatColors.Green + "Healed.");
         }
@@ -39,7 +41,9 @@ namespace Essentials.Command
         {
             if(Plugin.GetPlayer(player, sender.Level) != null)
             {
-                Plugin.SetHealth(Plugin.GetPlayer(player, sender.Level), amount);
+                HealthManager healthmanager = new HealthManager(Plugin.GetPlayer(player, sender.Level));
+
+                healthmanager.Health = healthmanager.Health + amount;
 
                 sender.SendMessage(ChatColors.Green + "Healed.");
             }
