@@ -29,9 +29,14 @@ namespace Essentials.Command
         [Command(Name = "fly", Description = "Allow flying.")]
         public void Execute(Player sender)
         {
-            sender.AllowFly = true;
-
-            sender.SendMessage(ChatColors.Green + "You can fly.");
+            if (sender.AllowFly == false) 
+            {
+               sender.AllowFly = true;
+               sender.SendMessage(ChatColors.Green + "You can fly.");
+            } else {
+               sender.AllowFly = false;
+               sender.SendMessage(ChatColors.Green + "You can't fly.");
+            }
         }
     }
 }
