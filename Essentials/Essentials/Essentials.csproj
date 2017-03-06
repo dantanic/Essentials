@@ -89,6 +89,7 @@
     <Compile Include="Command\Teleport\Tpdeny.cs" />
     <Compile Include="Command\Teleport\TPA.cs" />
     <Compile Include="Command\Top.cs" />
+    <Compile Include="Command\Up.cs" />
     <Compile Include="Essentials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
