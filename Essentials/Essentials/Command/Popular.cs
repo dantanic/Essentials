@@ -20,14 +20,14 @@ namespace Essentials.Command
         [Command(Name = "popular")]
         public void Execute(Player sender)
         {
-            /*int rank;
+            int rank;
             foreach (var item in Plugin.poplist)
             {
                 if (item.Split(',')[0] == sender.Username)
                 {
-                    
+                    sender.SendMessage($"Your Q-score are {item.Split(',')[1]}");
                 }
-            }*/
+            }
             sender.SendMessage($"My Rank : ");
         }
         [Command(Name = "popular")]
