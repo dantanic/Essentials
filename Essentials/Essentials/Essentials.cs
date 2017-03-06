@@ -42,6 +42,7 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new Fly(this));
             Context.PluginManager.LoadCommands(new Getpos(this));
             Context.PluginManager.LoadCommands(new Heal(this));
+            Context.PluginManager.LoadCommands(new Top(this));
         }
 
         /*
