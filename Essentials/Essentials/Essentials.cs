@@ -20,7 +20,8 @@ using MiNET.Plugins.Attributes;
 using MiNET.Worlds;
 using MiNET.Utils;
 
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using System.Collections;
 using System.Linq; 
 
 namespace Essentials
@@ -34,6 +35,7 @@ namespace Essentials
 
         protected override void OnEnable()
         {
+            /* Command */
             Context.PluginManager.LoadCommands(new Home(this));
             Context.PluginManager.LoadCommands(new SetHome(this));
             Context.PluginManager.LoadCommands(new AFK(this));
@@ -43,6 +45,13 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new Getpos(this));
             Context.PluginManager.LoadCommands(new Heal(this));
             Context.PluginManager.LoadCommands(new Top(this));
+
+            /* Event */
+            Context.Server.PlayerFactory.PlayerCreated += (sender, args) =>
+            {
+                Player player = args.Player;
+                player.PlayerJoin += new Handler().PlayerJoin;
+            };
         }
 
         /*
@@ -97,7 +106,28 @@ namespace Essentials
         {
             return AFK.Contains(player);
         }
-
+        /* Popular */
+        public List<string> poplist = new List<string>();
+        public void up(string name)
+        {
+            foreach (var item in poplist)
+            {
+                int i = int.Parse(item.Split(',')[1]);
+                int n = i + 1;
+                int ind = poplist.IndexOf(item);
+                poplist[ind] = $"{name},{n.ToString()}";
+            }
+        }
+        public void down(string name)
+        {
+            foreach (var item in poplist)
+            {
+                int i = int.Parse(item.Split(',')[1]);
+                int n = i - 1;
+                int ind = poplist.IndexOf(item);
+                poplist[ind] = $"{name},{n.ToString()}";
+            }
+        }
         /*
              ________  _______   ________ ________  ___  ___  ___   _________   
             |\   ___ \|\  ___ \ |\  _____\\   __  \|\  \|\  \|\  \ |\___   ___\ 

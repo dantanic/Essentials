@@ -22,6 +22,7 @@ namespace Essentials.Command
                 Z = kp.Z
             };
             var py = y + pos.Y;
+
             sender.Teleport(new PlayerLocation()
             {
                 X = kp.X,

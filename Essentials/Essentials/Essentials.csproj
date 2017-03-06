@@ -82,9 +82,11 @@
     <Compile Include="Command\Broadcast.cs" />
     <Compile Include="Command\Fly.cs" />
     <Compile Include="Command\Getpos.cs" />
+    <Compile Include="Command\Handler.cs" />
     <Compile Include="Command\Heal.cs" />
     <Compile Include="Command\Home\Home.cs" />
     <Compile Include="Command\Home\SetHome.cs" />
+    <Compile Include="Command\Popular.cs" />
     <Compile Include="Command\Teleport\Tpaccept.cs" />
     <Compile Include="Command\Teleport\Tpdeny.cs" />
     <Compile Include="Command\Teleport\TPA.cs" />
