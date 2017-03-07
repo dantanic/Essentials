@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Essentials;
 using MiNET;
 
 namespace Essentials.Command
@@ -12,6 +13,7 @@ namespace Essentials.Command
         public void PlayerJoin(object sender, PlayerEventArgs e)
         {
             poplist.Add($"{e.Player.Username},0");
+            pjoinFile();
         }
     }
 }

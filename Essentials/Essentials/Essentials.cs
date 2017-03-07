@@ -22,7 +22,8 @@ using MiNET.Utils;
 
 using System.Collections.Generic;
 using System.Collections;
-using System.Linq; 
+using System.Linq;
+using System.IO;
 
 namespace Essentials
 {
@@ -128,6 +129,30 @@ namespace Essentials
                 poplist[ind] = $"{name},{n.ToString()}";
             }
         }
+        /*
+        ________ ___  ___       _______      
+        |\  _____\\  \|\  \     |\  ___ \     
+        \ \  \__/\ \  \ \  \    \ \   __/|    
+         \ \   __\\ \  \ \  \    \ \  \_|/__  
+          \ \  \_| \ \  \ \  \____\ \  \_|\ \ 
+           \ \__\   \ \__\ \_______\ \_______\
+            \|__|    \|__|\|_______|\|_______|                       
+       */
+        public void eneableFile()
+        {
+        }
+        public void pjoinFile(string name)
+        {
+            if (!File.Exists($"{name}.json"))
+            {
+                File.Create($"{name}.json");
+            }
+            if (!Directory.Exists("Essentials"))
+            {
+                Directory.CreateDirectory("Essentials");
+            }
+        }
+
         /*
              ________  _______   ________ ________  ___  ___  ___   _________   
             |\   ___ \|\  ___ \ |\  _____\\   __  \|\  \|\  \|\  \ |\___   ___\ 

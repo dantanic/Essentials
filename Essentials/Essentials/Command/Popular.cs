@@ -16,7 +16,7 @@ namespace Essentials.Command
         {
             Plugin = plugin;
         }
-
+        
         [Command(Name = "popular")]
         public void Execute(Player sender)
         {
@@ -25,7 +25,7 @@ namespace Essentials.Command
             {
                 if (item.Split(',')[0] == sender.Username)
                 {
-                    sender.SendMessage($"Your Q-score are {item.Split(',')[1]}");
+                    sender.SendMessage($"Your Q-score are {item.Split(',')[1]} point.");
                 }
             }
             sender.SendMessage($"My Rank : ");
