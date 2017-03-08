@@ -21,7 +21,6 @@ using MiNET.Worlds;
 using MiNET.Utils;
 
 using System.Collections.Generic;
-using System.Collections;
 using System.Linq;
 using System.IO;
 using Essentials.Command.Mail;
@@ -117,24 +116,30 @@ namespace Essentials
         public List<string> poplist = new List<string>();
         public void up(string name)
         {
+            int ind;
+            string pop;
             foreach (var item in poplist)
             {
                 int i = int.Parse(item.Split(',')[1]);
                 int n = i + 1;
-                int ind = poplist.IndexOf(item);
-                poplist[ind] = $"{name},{n.ToString()}";
+                ind = poplist.IndexOf(item);
+                pop = $"{name},{n.ToString()}";
             }
+            poplist[ind] = pop;
         }
         public void down(string name)
         {
+            int ind;
+            string pop;
             foreach (var item in poplist)
             {
                 int i = int.Parse(item.Split(',')[1]);
-                int n = i - 1;
-                int ind = poplist.IndexOf(item);
-                poplist[ind] = $"{name},{n.ToString()}";
+                int n = i + 1;
+                ind = poplist.IndexOf(item);
+                pop = $"{name},{n.ToString()}";
             }
-        }
+            poplist[ind] = pop;
+        }
         /*
         ________ ___  ___       _______      
         |\  _____\\  \|\  \     |\  ___ \     
