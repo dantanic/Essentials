@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
 using System.IO;
+using Essentials.Command.Mail;
 
 namespace Essentials
 {
@@ -33,6 +34,8 @@ namespace Essentials
         private Dictionary<Player, PlayerLocation> Home = new Dictionary<Player, PlayerLocation>();
 
         private List<Player> AFK = new List<Player>();
+
+        public List<Player> plist = new List<Player>();
 
         protected override void OnEnable()
         {
@@ -46,12 +49,15 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new Getpos(this));
             Context.PluginManager.LoadCommands(new Heal(this));
             Context.PluginManager.LoadCommands(new Top(this));
+            Context.PluginManager.LoadCommands(new Up(this));
+            Context.PluginManager.LoadCommands(new MailCommand(this));
 
             /* Event */
             Context.Server.PlayerFactory.PlayerCreated += (sender, args) =>
             {
                 Player player = args.Player;
                 player.PlayerJoin += new Handler().PlayerJoin;
+                player.PlayerLeave += new Handler().PlayerLeave;
             };
         }
 
@@ -143,13 +149,13 @@ namespace Essentials
         }
         public void pjoinFile(string name)
         {
-            if (!File.Exists($"{name}.json"))
-            {
-                File.Create($"{name}.json");
-            }
             if (!Directory.Exists("Essentials"))
             {
                 Directory.CreateDirectory("Essentials");
+            }
+            if (!File.Exists($"Essentials/{name}.json"))
+            {
+                File.Create($"Essentials/{name}.json");
             }
         }
 

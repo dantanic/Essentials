@@ -11,6 +11,13 @@ namespace Essentials.Command
 {
     public class Up
     {
+        private Essentials Plugin;
+
+        public Up(Essentials plugin)
+        {
+            Plugin = plugin;
+        }
+
         [Command(Name = "up")]
         public void Execute(Player sender, int y)
         {

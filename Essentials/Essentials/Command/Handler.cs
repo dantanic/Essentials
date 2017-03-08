@@ -13,7 +13,12 @@ namespace Essentials.Command
         public void PlayerJoin(object sender, PlayerEventArgs e)
         {
             poplist.Add($"{e.Player.Username},0");
-            pjoinFile();
+            pjoinFile(e.Player.Username);
+            plist.Add(e.Player);
+        }
+        public void PlayerLeave(object sender, PlayerEventArgs e)
+        {
+            plist.Remove(e.Player);
         }
     }
 }
