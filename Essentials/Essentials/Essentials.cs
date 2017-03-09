@@ -23,22 +23,15 @@ using MiNET.Utils;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
-using Essentials.Command.Mail;
 
 namespace Essentials
 {
     [Plugin(PluginName = "Essentials", Description = "An essential plugin.", PluginVersion = "1.0", Author = "PIEA Organization")]
     public class Essentials : Plugin
     {
-        private Dictionary<Player, PlayerLocation> Home = new Dictionary<Player, PlayerLocation>();
-
-        private List<Player> AFK = new List<Player>();
-
-        public List<Player> plist = new List<Player>();
 
         protected override void OnEnable()
         {
-            /* Command */
             Context.PluginManager.LoadCommands(new Home(this));
             Context.PluginManager.LoadCommands(new SetHome(this));
             Context.PluginManager.LoadCommands(new AFK(this));
@@ -49,15 +42,6 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new Heal(this));
             Context.PluginManager.LoadCommands(new Top(this));
             Context.PluginManager.LoadCommands(new Up(this));
-            Context.PluginManager.LoadCommands(new MailCommand(this));
-
-            /* Event */
-            Context.Server.PlayerFactory.PlayerCreated += (sender, args) =>
-            {
-                Player player = args.Player;
-                player.PlayerJoin += new Handler().PlayerJoin;
-                player.PlayerLeave += new Handler().PlayerLeave;
-            };
         }
 
         /*
@@ -69,6 +53,8 @@ namespace Essentials
                \ \__\ \__\ \_______\ \__\    \ \__\ \_______\
                 \|__|\|__|\|_______|\|__|     \|__|\|_______|
         */
+
+        private Dictionary<Player, PlayerLocation> Home = new Dictionary<Player, PlayerLocation>();
 
         public void SetHome(Player player, PlayerLocation pos)
         {
@@ -104,65 +90,45 @@ namespace Essentials
                 \|__|\|__|\|__|    \|__| \|__|
         */
 
+        private List<Player> AFK = new List<Player>();
+
         public void SetAFK(Player player) => AFK.Add(player);
 
         public void RemoveAFK(Player player) => AFK.Remove(player);
 
-        public bool GetAFK(Player player)
-        {
-            return AFK.Contains(player);
-        }
-        /* Popular */
-        public List<string> poplist = new List<string>();
-        public void up(string name)
-        {
-            int ind;
-            string pop;
-            foreach (var item in poplist)
-            {
-                int i = int.Parse(item.Split(',')[1]);
-                int n = i + 1;
-                ind = poplist.IndexOf(item);
-                pop = $"{name},{n.ToString()}";
-            }
-            poplist[ind] = pop;
-        }
-        public void down(string name)
-        {
-            int ind;
-            string pop;
-            foreach (var item in poplist)
-            {
-                int i = int.Parse(item.Split(',')[1]);
-                int n = i + 1;
-                ind = poplist.IndexOf(item);
-                pop = $"{name},{n.ToString()}";
-            }
-            poplist[ind] = pop;
-        }
+        public bool GetAFK(Player player) => AFK.Contains(player);
+
         /*
-        ________ ___  ___       _______      
-        |\  _____\\  \|\  \     |\  ___ \     
-        \ \  \__/\ \  \ \  \    \ \   __/|    
-         \ \   __\\ \  \ \  \    \ \  \_|/__  
-          \ \  \_| \ \  \ \  \____\ \  \_|\ \ 
-           \ \__\   \ \__\ \_______\ \_______\
-            \|__|    \|__|\|_______|\|_______|                       
-       */
-        public void eneableFile()
+             ________  ________  ________  ___  ___  ___       ________  ________     
+            |\   __  \|\   __  \|\   __  \|\  \|\  \|\  \     |\   __  \|\   __  \    
+            \ \  \|\  \ \  \|\  \ \  \|\  \ \  \\\  \ \  \    \ \  \|\  \ \  \|\  \   
+             \ \   ____\ \  \\\  \ \   ____\ \  \\\  \ \  \    \ \   __  \ \   _  _\  
+              \ \  \___|\ \  \\\  \ \  \___|\ \  \\\  \ \  \____\ \  \ \  \ \  \\  \| 
+               \ \__\    \ \_______\ \__\    \ \_______\ \_______\ \__\ \__\ \__\\ _\ 
+                \|__|     \|_______|\|__|     \|_______|\|_______|\|__|\|__|\|__|\|__|
+        */
+                                                                          
+        private Dictionary<string, int> Popular = new Dictionary<string, int>();
+
+        public void Increase(string player)
         {
+            if (!GetPopular(player))
+            {
+                Popular.Add(player, 1);
+                return;
+            }
+
+            ++Popular[player];
         }
-        public void pjoinFile(string name)
+
+        public void Decrease(string player)
         {
-            if (!Directory.Exists("Essentials"))
-            {
-                Directory.CreateDirectory("Essentials");
-            }
-            if (!File.Exists($"Essentials/{name}.json"))
-            {
-                File.Create($"Essentials/{name}.json");
-            }
+            if (!GetPopular(player)) return;
+
+            --Popular[player];
         }
+
+        public bool GetPopular(string player) => Popular.ContainsKey(player);
 
         /*
              ________  _______   ________ ________  ___  ___  ___   _________   

@@ -1,8 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+/*
+     ________  ___  _______   ________     
+    |\   __  \|\  \|\  ___ \ |\   __  \    
+    \ \  \|\  \ \  \ \   __/|\ \  \|\  \   
+     \ \   ____\ \  \ \  \_|/_\ \   __  \  
+      \ \  \___|\ \  \ \  \_|\ \ \  \ \  \ 
+       \ \__\    \ \__\ \_______\ \__\ \__\
+        \|__|     \|__|\|_______|\|__|\|__|          
+    
+    PIEA, The MiNET plugins development organization.         
+*/
+
 using MiNET;
 using MiNET.Plugins.Attributes;
 
@@ -17,29 +25,21 @@ namespace Essentials.Command
             Plugin = plugin;
         }
         
-        [Command(Name = "popular")]
+        [Command(Name = "popular", Description = "Vote other player.")]
         public void Execute(Player sender)
         {
-            int rank;
-            foreach (var item in Plugin.poplist)
+            if(Plugin.GetPopular(sender.Username))
             {
-                if (item.Split(',')[0] == sender.Username)
-                {
-                    sender.SendMessage($"Your Q-score are {item.Split(',')[1]} point.");
-                }
+                sender.SendMessage("Your popular count: " + Plugin.GetPopular(sender.Username));
             }
-            sender.SendMessage($"My Rank : ");
         }
-        [Command(Name = "popular")]
-        public void Execute(Player sender, string args)
+
+        [Command(Name = "popular", Description = "Vote other player.")]
+        public void Execute(Player sender, string player)
         {
-            if (args == "up")
+            if(Plugin.GetPopular(player))
             {
-                Plugin.up(sender.Username);
-            }
-            if (args == "down")
-            {
-                Plugin.down(sender.Username);
+                sender.SendMessage("Voted to " + player + ".");
             }
         }
     }

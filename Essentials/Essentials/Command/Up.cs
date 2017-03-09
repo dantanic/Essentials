@@ -1,8 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+/*
+     ________  ___  _______   ________     
+    |\   __  \|\  \|\  ___ \ |\   __  \    
+    \ \  \|\  \ \  \ \   __/|\ \  \|\  \   
+     \ \   ____\ \  \ \  \_|/_\ \   __  \  
+      \ \  \___|\ \  \ \  \_|\ \ \  \ \  \ 
+       \ \__\    \ \__\ \_______\ \__\ \__\
+        \|__|     \|__|\|_______|\|__|\|__|          
+    
+    PIEA, The MiNET plugins development organization.         
+*/
+
 using MiNET;
 using MiNET.Plugins.Attributes;
 using MiNET.Utils;
@@ -18,23 +26,16 @@ namespace Essentials.Command
             Plugin = plugin;
         }
 
-        [Command(Name = "up")]
-        public void Execute(Player sender, int y)
+        [Command(Name = "up", Description = "Up your position to height.")]
+        public void Execute(Player sender, int height)
         {
-            var kp = sender.KnownPosition;
-            var pos = new PlayerLocation()
-            {
-                X = kp.X,
-                Y = kp.Y,
-                Z = kp.Z
-            };
-            var py = y + pos.Y;
+            PlayerLocation pos = sender.KnownPosition;
 
             sender.Teleport(new PlayerLocation()
             {
-                X = kp.X,
-                Y = py,
-                Z = kp.Z
+                X = pos.X,
+                Y = pos.Y + height,
+                Z = pos.Z
             });
         }
     }

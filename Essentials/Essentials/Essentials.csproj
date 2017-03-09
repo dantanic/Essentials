@@ -34,9 +34,8 @@
       <HintPath>..\packages\MiNET.fnbt.0.6.9\lib\net35-client\fNbt.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="jose-jwt, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\jose-jwt.2.1.0\lib\net461\jose-jwt.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="jose-jwt, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\jose-jwt.2.2.0\lib\net461\jose-jwt.dll</HintPath>
     </Reference>
     <Reference Include="LibNoise, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LibNoise.0.2\lib\NET45\LibNoise.dll</HintPath>
@@ -82,12 +81,9 @@
     <Compile Include="Command\Broadcast.cs" />
     <Compile Include="Command\Fly.cs" />
     <Compile Include="Command\Getpos.cs" />
-    <Compile Include="Command\Handler.cs" />
     <Compile Include="Command\Heal.cs" />
     <Compile Include="Command\Home\Home.cs" />
     <Compile Include="Command\Home\SetHome.cs" />
-    <Compile Include="Command\Mail\Mail.cs" />
-    <Compile Include="Command\Mail\MailCommand.cs" />
     <Compile Include="Command\Popular.cs" />
     <Compile Include="Command\Teleport\Tpaccept.cs" />
     <Compile Include="Command\Teleport\Tpdeny.cs" />

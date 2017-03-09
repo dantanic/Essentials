@@ -12,51 +12,34 @@
 */
 
 using MiNET;
+using MiNET.Blocks;
 using MiNET.Plugins.Attributes;
 using MiNET.Utils;
-using MiNET.Blocks;
-using System.Collections;
 
 namespace Essentials.Command
 {
     public class Top
     {
         private Essentials Plugin;
+
         public Top(Essentials plugin)
         {
             Plugin = plugin;
         }
-        [Command(Name = "top")]
-        public void excute(Player player)
+
+        [Command(Name = "top", Description = "Teleport to your highground block.")]
+        public void Execute(Player sender)
         {
-            int py = 0;
-            var pos = player.KnownPosition;
-            var px = pos.X;
-            var pz = pos.Z;
-            Block block = new Block(0);
-            for (var fy=0;fy<=256;)
+            for(int i = 0; i <= 256; i++)
             {
-                var fpos = new PlayerLocation()
+                Block highground = new Block(0);
+                highground.Coordinates = sender.KnownPosition.GetCoordinates3D();
+
+                if (highground.Id != 0) sender.Teleport(new PlayerLocation()
                 {
-                    X = px,
-                    Y = fy,
-                    Z = pz
-                };
-                var nblock = fpos.GetCoordinates3D();
-                block.Coordinates = nblock;
-                if (block.Id == 0)
-                {
-                } else
-                {
-                    py = fy;
-                }
+                    Y = i
+                });
             }
-            player.Teleport(new PlayerLocation()
-            {
-                X = px,
-                Y = py,
-                Z = pz
-            });
         }
     }
 }
