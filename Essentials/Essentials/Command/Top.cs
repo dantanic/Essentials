@@ -30,7 +30,7 @@ namespace Essentials.Command
         [Command(Name = "top", Description = "Teleport to your highground block.")]
         public void Execute(Player sender)
         {
-            for(int i = 0; i <= 256; i++)
+            for(int i = (int) sender.KnownPosition.Y; i <= 256; i++)
             {
                 Block highground = new Block(0);
                 highground.Coordinates = sender.KnownPosition.GetCoordinates3D();
