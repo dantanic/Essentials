@@ -43,7 +43,6 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new Top(this));
             Context.PluginManager.LoadCommands(new Up(this));
             Context.PluginManager.LoadCommands(new Lightning(this));
-            Context.PluginManager.LoadCommands(new Notice(this));
         }
 
         /*

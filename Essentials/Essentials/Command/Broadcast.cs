@@ -36,7 +36,7 @@ namespace Essentials.Command
                 message += text[i];
             }
 
-            sender.Level.BroadcastMessage(ChatColors.LightPurple + "[NOTICE] " + message);
+            Plugin.serbroadcast(ChatColors.LightPurple + "[NOTICE] " + message);
         }
     }
 }
