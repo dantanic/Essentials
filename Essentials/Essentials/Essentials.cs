@@ -63,7 +63,7 @@ namespace Essentials
 
             Home.Add(player, pos);
         }
-        
+
         public PlayerLocation GetHome(Player player)
         {
             if (!Home.ContainsKey(player)) return null;
@@ -108,7 +108,7 @@ namespace Essentials
                \ \__\    \ \_______\ \__\    \ \_______\ \_______\ \__\ \__\ \__\\ _\ 
                 \|__|     \|_______|\|__|     \|_______|\|_______|\|__|\|__|\|__|\|__|
         */
-                                                                          
+
         private Dictionary<string, int> Popular = new Dictionary<string, int>();
 
         public void Increase(string player)
@@ -151,10 +151,22 @@ namespace Essentials
         }
         public void serbroadcast(string msg)
         {
-            foreach(var i in Context.LevelManager.Levels)
+            foreach (var i in Context.LevelManager.Levels)
             {
                 i.BroadcastMessage(msg);
             }
+        }
+        private List<Player> playerlist = new List<Player>();
+        public List<Player> plist()
+        {
+            foreach (var i in Context.LevelManager.Levels)
+            {
+                foreach (var item in i.Players.ToList())
+                {
+                    playerlist.Add(item.Value);
+                }
+            }
+            return playerlist;
         }
     }
 }
