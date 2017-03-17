@@ -17,12 +17,10 @@ using Essentials.Command.Home;
 using MiNET;
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
-using MiNET.Worlds;
 using MiNET.Utils;
 
 using System.Collections.Generic;
 using System.Linq;
-using System.IO;
 
 namespace Essentials
 {
