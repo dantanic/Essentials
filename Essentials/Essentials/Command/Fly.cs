@@ -26,7 +26,7 @@ namespace Essentials.Command
         {
             Plugin = plugin;
         }
-
+        
         [Command(Name = "fly", Description = "Allow flying.")]
         public void Execute(Player sender)
         {

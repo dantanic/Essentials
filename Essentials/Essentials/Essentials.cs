@@ -43,6 +43,7 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new Top(this));
             Context.PluginManager.LoadCommands(new Up(this));
             Context.PluginManager.LoadCommands(new Lightning(this));
+            Context.PluginManager.LoadCommands(new Notice(this));
         }
 
         /*
@@ -148,6 +149,13 @@ namespace Essentials
                 return i.Players.ToList().Find(x => x.Value.Username.ToLower().Contains(player)).Value ?? null;
             }
             return null;
+        }
+        public void serbroadcast(string msg)
+        {
+            foreach(var i in Context.LevelManager.Levels)
+            {
+                i.BroadcastMessage(msg);
+            }
         }
     }
 }
