@@ -26,7 +26,14 @@ namespace Essentials.Command
         [Command(Name = "lightning")]
         public void Execute(Player sender, string name)
         {
+            var gp = Plugin.GetPlayer(name);
+            if (gp == null)
+            {
+                sender.SendMessage("플레이어가 존재하지 않습니다.");
+            }
+            gp.StrikeLightning();
             sender.SendMessage("lightning!!!");
+            gp.SendMessage("lightning!!!");
         }
     }
 }
