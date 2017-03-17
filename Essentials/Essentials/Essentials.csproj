@@ -84,6 +84,7 @@
     <Compile Include="Command\Heal.cs" />
     <Compile Include="Command\Home\Home.cs" />
     <Compile Include="Command\Home\SetHome.cs" />
+    <Compile Include="Command\Lightning.cs" />
     <Compile Include="Command\Popular.cs" />
     <Compile Include="Command\Teleport\Tpaccept.cs" />
     <Compile Include="Command\Teleport\Tpdeny.cs" />

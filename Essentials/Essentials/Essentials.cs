@@ -42,6 +42,7 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new Heal(this));
             Context.PluginManager.LoadCommands(new Top(this));
             Context.PluginManager.LoadCommands(new Up(this));
+            Context.PluginManager.LoadCommands(new Lightning(this));
         }
 
         /*
@@ -140,9 +141,13 @@ namespace Essentials
                 \|_______|\|_______|\|__|    \|__|\|__|\|_______|\|_______|\|__|
         */
 
-        public Player GetPlayer(string player, Level level)
+        public Player GetPlayer(string player)
         {
-            return level.Players.ToList().Find(x => x.Value.Username.ToLower().Contains(player)).Value ?? null;
+            foreach (var i in Context.LevelManager.Levels)
+            {
+                return i.Players.ToList().Find(x => x.Value.Username.ToLower().Contains(player)).Value ?? null;
+            }
+            return null;
         }
     }
 }
