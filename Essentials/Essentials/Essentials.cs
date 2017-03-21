@@ -13,6 +13,7 @@
 
 using Essentials.Command;
 using Essentials.Command.Home;
+using Essentials.Command.Teleport;
 
 using MiNET;
 using MiNET.Plugins;
@@ -40,7 +41,7 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new Heal(this));
             Context.PluginManager.LoadCommands(new Top(this));
             Context.PluginManager.LoadCommands(new Up(this));
-            Context.PluginManager.LoadCommands(new Lightning(this));
+            Context.PluginManager.LoadCommands(new Tpall(this));
         }
 
         /*
@@ -154,17 +155,21 @@ namespace Essentials
                 i.BroadcastMessage(msg);
             }
         }
-        private List<Player> playerlist = new List<Player>();
-        public List<Player> plist()
+        public void tpall()
         {
             foreach (var i in Context.LevelManager.Levels)
             {
                 foreach (var item in i.Players.ToList())
                 {
-                    playerlist.Add(item.Value);
+                    item.Value.Teleport(new PlayerLocation()
+                    {
+                        X = item.Value.KnownPosition.X,
+                        Y = item.Value.KnownPosition.Y,
+                        Z = item.Value.KnownPosition.Z
+                    });
                 }
+                i.BroadcastMessage("모든 플레이어가 텔레포트 되었습니다.");
             }
-            return playerlist;
         }
     }
 }

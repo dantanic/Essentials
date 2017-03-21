@@ -91,6 +91,7 @@
     <Compile Include="Command\list.cs" />
     <Compile Include="Command\Popular.cs" />
     <Compile Include="Command\Teleport\Tpaccept.cs" />
+    <Compile Include="Command\Teleport\Tpall.cs" />
     <Compile Include="Command\Teleport\Tpdeny.cs" />
     <Compile Include="Command\Teleport\TPA.cs" />
     <Compile Include="Command\Top.cs" />
