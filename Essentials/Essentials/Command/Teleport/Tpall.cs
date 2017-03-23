@@ -21,7 +21,7 @@ namespace Essentials.Command.Teleport
         public void Execute(Player sender)
         {
             if (!PermissionManager.Manager.CheckCurrentUserPermission(sender)) return;
-            Plugin.tpall();
-        }
+            Plugin.tpall(sender);
+        } 
     }
 }

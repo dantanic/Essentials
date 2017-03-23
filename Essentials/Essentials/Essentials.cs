@@ -20,15 +20,21 @@ using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
 using MiNET.Utils;
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Reflection;
+
+using YamlDotNet;
+using YamlDotNet.Core;
+using YamlDotNet.Serialization;
 
 namespace Essentials
 {
     [Plugin(PluginName = "Essentials", Description = "An essential plugin.", PluginVersion = "1.0", Author = "PIEA Organization")]
     public class Essentials : Plugin
     {
-
         protected override void OnEnable()
         {
             Context.PluginManager.LoadCommands(new Home(this));
@@ -42,6 +48,7 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new Top(this));
             Context.PluginManager.LoadCommands(new Up(this));
             Context.PluginManager.LoadCommands(new Tpall(this));
+            EIO();
         }
 
         /*
@@ -59,8 +66,8 @@ namespace Essentials
         public void SetHome(Player player, PlayerLocation pos)
         {
             if (Home.ContainsKey(player)) Home.Remove(player);
-
             Home.Add(player, pos);
+            Deserializer des = new Deserializer();
         }
 
         public PlayerLocation GetHome(Player player)
@@ -79,7 +86,36 @@ namespace Essentials
                    \ \__\ \ \_______\ \_______\ \_______\ \__\    \ \_______\ \__\\ _\    \ \__\
                     \|__|  \|_______|\|_______|\|_______|\|__|     \|_______|\|__|\|__|    \|__|                                                                                   
         */
-
+        public void tpall(Player player)
+        {
+            foreach (var i in Context.LevelManager.Levels)
+            {
+                foreach (var item in i.Players.ToList())
+                {
+                    if (player.Level != item.Value.Level)
+                    {
+                        item.Value.Level.RemovePlayer(player);
+                        player.Level.AddPlayer(item.Value,true);
+                        item.Value.Teleport(new PlayerLocation()
+                        {
+                            X = player.KnownPosition.X,
+                            Y = player.KnownPosition.Y,
+                            Z = player.KnownPosition.Z
+                        });
+                    }
+                    else
+                    {
+                        item.Value.Teleport(new PlayerLocation()
+                        {
+                            X = player.KnownPosition.X,
+                            Y = player.KnownPosition.Y,
+                            Z = player.KnownPosition.Z
+                        });
+                    }
+                }
+                i.BroadcastMessage("모든 플레이어가 텔레포트 되었습니다.");
+            }
+        }
         /*
              ________  ________ ___  __       
             |\   __  \|\  _____\\  \|\  \     
@@ -155,20 +191,28 @@ namespace Essentials
                 i.BroadcastMessage(msg);
             }
         }
-        public void tpall()
+        public string GetDataFolder() => Path.Combine(new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase)).LocalPath, "Essentials");
+        public void EIO()
         {
-            foreach (var i in Context.LevelManager.Levels)
+            CTDT(GetDataFolder());
+            CTDT(GetDataFolder()+@"\data");
+            CTFL(GetDataFolder()+@"data\home.yml");
+        }
+        public void CTDT(string name)
+        {
+            DirectoryInfo temp = new DirectoryInfo(name);
+            if (!temp.Exists)
             {
-                foreach (var item in i.Players.ToList())
-                {
-                    item.Value.Teleport(new PlayerLocation()
-                    {
-                        X = item.Value.KnownPosition.X,
-                        Y = item.Value.KnownPosition.Y,
-                        Z = item.Value.KnownPosition.Z
-                    });
-                }
-                i.BroadcastMessage("모든 플레이어가 텔레포트 되었습니다.");
+                temp.Create();
+            }
+        }
+        public void CTFL(string name)
+        {
+            FileInfo temp = new FileInfo(name);
+            if (!temp.Exists)
+            {
+                FileStream fs = temp.Create();
+                fs.Close();
             }
         }
     }
