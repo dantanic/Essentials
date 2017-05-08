@@ -80,6 +80,18 @@ namespace Essentials.Command
         {
             Execute(sender, username);
         }
+
+        [Command]
+        public void ci(Player sender, int slot)
+        {
+            Execute(sender, slot);
+        }
+
+        [Command]
+        public void ci(Player sender, string username, int slot)
+        {
+            Execute(sender, username, slot);
+        }
         #endregion
     }
 }
