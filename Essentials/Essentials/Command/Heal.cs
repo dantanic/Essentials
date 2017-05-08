@@ -39,9 +39,9 @@ namespace Essentials.Command
         [Command(Name = "heal", Description = "Heal your health or other player.")]
         public void Execute(Player sender, string player, int amount)
         {
-            if(Plugin.GetPlayer(player, sender.Level) != null)
+            if(Plugin.GetPlayer(player) != null)
             {
-                HealthManager healthmanager = new HealthManager(Plugin.GetPlayer(player, sender.Level));
+                HealthManager healthmanager = new HealthManager(Plugin.GetPlayer(player));
 
                 healthmanager.Health = healthmanager.Health + amount;
 

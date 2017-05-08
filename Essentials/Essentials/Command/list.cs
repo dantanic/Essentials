@@ -9,7 +9,7 @@
         \|__|     \|__|\|_______|\|__|\|__|          
     
     PIEA, The MiNET plugins development organization.         
-*/
+*//*
 
 using MiNET;
 using MiNET.Plugins.Attributes;
@@ -37,3 +37,4 @@ namespace Essentials.Command
         }
     }
 }
+*/

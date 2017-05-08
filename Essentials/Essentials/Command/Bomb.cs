@@ -40,9 +40,9 @@ namespace Essentials.Command
         [Command(Name = "bomb", Description = "Explode other player.")]
         public void Execute(Player sender, string player)
         {
-            if(Plugin.GetPlayer(player, sender.Level) != null)
+            if(Plugin.GetPlayer(player) != null)
             {
-                Player target = Plugin.GetPlayer(player, sender.Level);
+                Player target = Plugin.GetPlayer(player);
 
                 PlayerLocation pos = target.KnownPosition;
 
