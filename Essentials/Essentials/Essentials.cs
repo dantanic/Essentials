@@ -48,6 +48,7 @@ namespace Essentials
             Context.PluginManager.LoadCommands(new Top(this));
             Context.PluginManager.LoadCommands(new Up(this));
             Context.PluginManager.LoadCommands(new Tpall(this));
+            Context.PluginManager.LoadCommands(new ClearInventory(this));
             EIO();
         }
 

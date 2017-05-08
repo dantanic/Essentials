@@ -85,6 +85,7 @@
     <Compile Include="Command\AFK.cs" />
     <Compile Include="Command\Bomb.cs" />
     <Compile Include="Command\Broadcast.cs" />
+    <Compile Include="Command\ClearInventory.cs" />
     <Compile Include="Command\Fly.cs" />
     <Compile Include="Command\Getpos.cs" />
     <Compile Include="Command\Heal.cs" />
