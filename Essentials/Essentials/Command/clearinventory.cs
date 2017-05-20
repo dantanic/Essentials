@@ -52,8 +52,8 @@ namespace Essentials.Command
         public void Execute(Player sender, string username, int slot)
         {
             if (!PermissionManager.Manager.CheckCurrentUserPermission(sender)) return;
-            var pi = sender.Inventory;
             var player = Plugin.GetPlayer(username);
+            var pi = player.Inventory;
             if (player == null)
             {
                 sender.SendMessage("플레이어를 찾을 수 없습니다.");
@@ -66,6 +66,35 @@ namespace Essentials.Command
             }
             sender.SendMessage($"{username}님의 인벤토리 {slot} 슬롯의 아이템(들)을 모두 삭제했습니다.");
             player.SendMessage($"관리자 {sender.Username}님이 당신의 인벤토리 {slot} 슬롯의 아이템(들)을 모두 삭제했습니다.");
+        }
+        [Command(Name = "clearinventory")]
+        public void Execute(Player sender, short code)
+        {
+            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender)) return;
+            var pi =  sender.Inventory;
+            for (int i = 0; i > pi.Slots.Count; i++)
+            {
+                if (pi.Slots[i].Id == code) pi.Slots[i] = new ItemAir();
+            }
+            sender.SendMessage($"당신의 인벤토리의 아이템 코드 {code} 아이템(들)을 모두 삭제했습니다.");
+        }
+        [Command(Name = "clearinventory")]
+        public void Execute(Player sender, string username, short code)
+        {
+            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender)) return;
+            var player = Plugin.GetPlayer(username);
+            var pi = player.Inventory;
+            if (player == null)
+            {
+                sender.SendMessage("플레이어를 찾을 수 없습니다.");
+                return;
+            }
+            for (int i = 0; i > pi.Slots.Count; i++)
+            {
+                if (pi.Slots[i].Id == code) pi.Slots[i] = new ItemAir();
+            }
+            sender.SendMessage($"{username}님의 인벤토리의 아이템 코드 {code} 아이템(들)을 모두 삭제했습니다.");
+            player.SendMessage($"관리자 {sender.Username}님이 당신의 인벤토리의 아이템 코드 {code} 아이템(들)을 모두 삭제했습니다.");
         }
 
         #region short command
@@ -91,6 +120,16 @@ namespace Essentials.Command
         public void ci(Player sender, string username, int slot)
         {
             Execute(sender, username, slot);
+        }
+        [Command]
+        public void ci(Player sender, short code)
+        {
+            Execute(sender, code);
+        }
+        [Command]
+        public void ci(Player sender, string username, short code)
+        {
+            Execute(sender, username, code);
         }
         #endregion
     }
