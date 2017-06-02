@@ -196,8 +196,7 @@ namespace Essentials
         public void EIO()
         {
             CTDT(GetDataFolder());
-            CTDT(GetDataFolder()+@"\data");
-            CTFL(GetDataFolder()+@"data\home.yml");
+            //TODO
         }
         public void CTDT(string name)
         {

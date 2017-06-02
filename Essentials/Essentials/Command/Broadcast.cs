@@ -26,7 +26,7 @@ namespace Essentials.Command
             Plugin = plugin;
         }
 
-        [Command(Name = "broadcast", Description = "Broadcast messages.")]
+        [Command(Name = "broadcast", Description = "Broadcast messages.", Permission = "op")]
         public void Execute(Player sender, params string[] text)
         {
             string message = string.Empty;

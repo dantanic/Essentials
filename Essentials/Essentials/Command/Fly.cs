@@ -27,7 +27,7 @@ namespace Essentials.Command
             Plugin = plugin;
         }
         
-        [Command(Name = "fly", Description = "Allow flying.")]
+        [Command(Name = "fly", Description = "Allow flying.", Permission = "op")]
         public void Execute(Player sender)
         {
             if (!sender.AllowFly)
@@ -41,10 +41,9 @@ namespace Essentials.Command
                 sender.SendMessage($"{ChatColors.Green}You can't fly.");
             }
         }
-        [Command(Name = "fly", Description = "Allow flying.")]
+        [Command(Name = "fly", Description = "Allow flying.", Permission = "op")]
         public void Execute(Player sender, string name)
         {
-            if (!PermissionManager.Manager.CheckCurrentUserPermission(sender)) return;
             var gp = Plugin.GetPlayer(name);
             if (gp == null) sender.SendMessage("플레이어가 존재하지 않습니다.");
             if (!gp.AllowFly)

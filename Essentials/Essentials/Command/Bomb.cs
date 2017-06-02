@@ -26,7 +26,7 @@ namespace Essentials.Command
             Plugin = plugin;
         }
 
-        [Command(Name = "bomb", Description = "Explode other player.")]
+        [Command(Name = "bomb", Description = "Explode other player.", Permission = "op")]
         public void Execute(Player sender)
         {
             PlayerLocation pos = sender.KnownPosition;
@@ -37,7 +37,7 @@ namespace Essentials.Command
             sender.SendMessage(ChatColors.Red + "Bomb!");
         }
 
-        [Command(Name = "bomb", Description = "Explode other player.")]
+        [Command(Name = "bomb", Description = "Explode other player.", Permission = "op")]
         public void Execute(Player sender, string player)
         {
             if(Plugin.GetPlayer(player) != null)
